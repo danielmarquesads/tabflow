@@ -1,0 +1,22 @@
+{
+  "name": "tabflow",
+  "version": "1.0.0",
+  "description": "Auto-close inactive Chrome tabs with a local archive. Free and open source.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "icons": "node scripts/generate-icons.mjs",
+    "test": "node tests/closer.test.mjs",
+    "check": "node tests/closer.test.mjs && node scripts/generate-icons.mjs"
+  },
+  "keywords": [
+    "chrome-extension",
+    "tabs",
+    "mv3",
+    "tab-manager"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

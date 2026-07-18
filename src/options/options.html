@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TabFlow Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared/ui.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side">
+        <div class="side-brand">
+          <div class="mark">TF</div>
+          <div>
+            <strong>TabFlow</strong>
+            <div class="muted tiny">v1.0.0 · MIT</div>
+          </div>
+        </div>
+        <nav class="tabs-nav side-nav" role="tablist" aria-label="Settings sections">
+          <button type="button" role="tab" aria-selected="true" data-tab="general">General</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="whitelist">Whitelist</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="archive">Archive</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="data">Data</button>
+        </nav>
+        <p class="side-note muted">
+          All data stays on this device. No account. No cloud.
+        </p>
+      </aside>
+
+      <main class="main">
+        <section id="panel-general" class="tab-panel" role="tabpanel">
+          <header class="page-head">
+            <h1>General</h1>
+            <p class="muted">Control when idle tabs close and what stays protected.</p>
+          </header>
+
+          <div class="grid-2">
+            <div class="panel stack">
+              <div class="row between">
+                <div>
+                  <div class="label-strong">Enable auto-close</div>
+                  <p class="muted tiny">Nothing closes until threshold is set</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="enabledToggle" />
+                  <span></span>
+                </label>
+              </div>
+              <div class="row between">
+                <div>
+                  <div class="label-strong">Paused</div>
+                  <p class="muted tiny">Research mode without losing config</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="pausedToggle" />
+                  <span></span>
+                </label>
+              </div>
+              <div class="field">
+                <label>Inactivity threshold</label>
+                <div class="threshold-grid">
+                  <input type="number" id="thresholdValue" min="1" value="1" />
+                  <select id="thresholdUnit">
+                    <option value="minutes">minutes</option>
+                    <option value="hours">hours</option>
+                    <option value="days">days</option>
+                    <option value="months">months</option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" id="saveGeneral">Save general</button>
+            </div>
+
+            <div class="panel stack">
+              <div class="row between">
+                <div>
+                  <div class="label-strong">Protect pinned tabs</div>
+                  <p class="muted tiny">Pinned stays open</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="protectPinned" />
+                  <span></span>
+                </label>
+              </div>
+              <div class="row between">
+                <div>
+                  <div class="label-strong">Protect audio tabs</div>
+                  <p class="muted tiny">Music, calls, video</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="protectAudio" />
+                  <span></span>
+                </label>
+              </div>
+              <div class="field">
+                <label for="minTabs">Minimum tabs per window</label>
+                <input type="number" id="minTabs" min="1" max="50" value="3" />
+              </div>
+              <div class="field">
+                <label for="archiveCap">Archive size cap</label>
+                <input type="number" id="archiveCap" min="50" max="5000" value="500" />
+              </div>
+              <div class="row between">
+                <div>
+                  <div class="label-strong">On-page archive button</div>
+                  <p class="muted tiny">FAB on websites</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="showPageButton" />
+                  <span></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-grid wide">
+            <div class="stat">
+              <div class="value mono" id="statToday">0</div>
+              <div class="label">Closed today</div>
+            </div>
+            <div class="stat">
+              <div class="value mono" id="statTotal">0</div>
+              <div class="label">Closed total</div>
+            </div>
+            <div class="stat">
+              <div class="value mono" id="statTabs">0</div>
+              <div class="label">Open tabs</div>
+            </div>
+            <div class="stat">
+              <div class="value mono" id="statArchive">0</div>
+              <div class="label">In archive</div>
+            </div>
+          </div>
+
+          <div class="panel stack">
+            <div class="row between">
+              <h2 class="section-title">Dry-run preview</h2>
+              <button type="button" class="btn btn-sm" id="refreshPreview">Refresh</button>
+            </div>
+            <div id="previewList" class="list"></div>
+            <button type="button" class="btn" id="runSweep">Close eligible tabs now</button>
+          </div>
+        </section>
+
+        <section id="panel-whitelist" class="tab-panel hidden" role="tabpanel" hidden>
+          <header class="page-head">
+            <h1>Whitelist</h1>
+            <p class="muted">Protect URLs and domains from auto-close.</p>
+          </header>
+          <div class="panel stack">
+            <div class="whitelist-form">
+              <div class="field">
+                <label for="rulePattern">Pattern</label>
+                <input type="text" id="rulePattern" placeholder="notion.so or *.google.com" />
+              </div>
+              <div class="field">
+                <label for="ruleMode">Mode</label>
+                <select id="ruleMode">
+                  <option value="subdomain">Subdomain (domain + subdomains)</option>
+                  <option value="exact">Exact URL path</option>
+                  <option value="wildcard">Wildcard (* patterns)</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-primary" id="addRule">Add rule</button>
+            </div>
+            <div id="whitelistList" class="list"></div>
+          </div>
+        </section>
+
+        <section id="panel-archive" class="tab-panel hidden" role="tabpanel" hidden>
+          <header class="page-head">
+            <h1>Archive</h1>
+            <p class="muted">Search and restore tabs closed by TabFlow. Local only.</p>
+          </header>
+          <div class="panel stack">
+            <div class="row">
+              <div class="field grow">
+                <label for="archiveQuery">Search</label>
+                <input type="search" id="archiveQuery" placeholder="Title or URL" />
+              </div>
+              <button type="button" class="btn btn-danger btn-sm" id="clearArchive">Clear all</button>
+            </div>
+            <div id="archiveList" class="list tall"></div>
+          </div>
+        </section>
+
+        <section id="panel-data" class="tab-panel hidden" role="tabpanel" hidden>
+          <header class="page-head">
+            <h1>Data</h1>
+            <p class="muted">Export or import settings, whitelist, and archive as JSON.</p>
+          </header>
+          <div class="panel stack">
+            <div class="row">
+              <button type="button" class="btn btn-primary" id="exportBtn">Export backup</button>
+              <label class="btn">
+                Import backup
+                <input type="file" id="importFile" accept="application/json,.json" hidden />
+              </label>
+            </div>
+            <p class="muted tiny">
+              Import replaces matching keys. Keep a backup before importing untrusted files.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TabFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared/ui.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="head row between">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">TF</div>
+          <div>
+            <h1>TabFlow</h1>
+            <p class="muted tiny">Local · open source</p>
+          </div>
+        </div>
+        <span id="statusPill" class="pill">Off</span>
+      </header>
+
+      <section class="panel stack">
+        <div class="row between">
+          <div>
+            <div class="label-strong">Auto-close</div>
+            <p class="muted tiny" id="statusHint">Set a threshold to enable</p>
+          </div>
+          <label class="toggle" title="Enable auto-close">
+            <input type="checkbox" id="enabledToggle" />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="row between">
+          <div>
+            <div class="label-strong">Paused</div>
+            <p class="muted tiny">Keep settings, stop closing</p>
+          </div>
+          <label class="toggle" title="Pause auto-close">
+            <input type="checkbox" id="pausedToggle" />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="threshold">
+          <label class="sr-only" for="thresholdValue">Inactivity threshold</label>
+          <div class="threshold-grid">
+            <input type="number" id="thresholdValue" min="1" step="1" value="1" />
+            <select id="thresholdUnit" aria-label="Threshold unit">
+              <option value="minutes">minutes</option>
+              <option value="hours" selected>hours</option>
+              <option value="days">days</option>
+              <option value="months">months</option>
+            </select>
+            <button type="button" class="btn btn-primary" id="saveThreshold">Save</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="stat-grid">
+        <div class="stat">
+          <div class="value mono" id="statToday">0</div>
+          <div class="label">Closed today</div>
+        </div>
+        <div class="stat">
+          <div class="value mono" id="statTabs">0</div>
+          <div class="label">Open tabs</div>
+        </div>
+      </section>
+
+      <section class="panel stack">
+        <div class="row between">
+          <h2 class="section-title">Would close now</h2>
+          <button type="button" class="btn btn-sm btn-ghost" id="refreshPreview">Refresh</button>
+        </div>
+        <div id="previewList" class="list" role="list"></div>
+        <button type="button" class="btn btn-block" id="runSweep">Close eligible now</button>
+      </section>
+
+      <footer class="foot row between">
+        <button type="button" class="btn btn-sm btn-ghost" id="openArchive">Archive</button>
+        <button type="button" class="btn btn-sm btn-ghost" id="openOptions">Settings</button>
+      </footer>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
