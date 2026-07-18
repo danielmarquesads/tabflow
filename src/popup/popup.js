@@ -1,4 +1,4 @@
-import { applyI18n, t } from "../shared/i18n.js";
+import { applyI18n, t, loadLocale } from "../shared/i18n.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -8,6 +8,8 @@ let previewHorizon = 0;
 init();
 
 async function init() {
+  const boot = await send({ type: "GET_STATE" });
+  if (boot?.ok) await loadLocale(boot.settings?.uiLocale || "auto");
   applyI18n();
   await loadState();
   bind();

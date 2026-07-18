@@ -8,7 +8,8 @@
     "icons": "node scripts/generate-icons.mjs",
     "locales": "node scripts/generate-locales.mjs",
     "test": "node tests/closer.test.mjs",
-    "check": "node tests/closer.test.mjs && node scripts/generate-icons.mjs && node scripts/generate-locales.mjs"
+    "audit": "node scripts/audit.mjs",
+    "check": "node tests/closer.test.mjs && node scripts/audit.mjs && node scripts/generate-icons.mjs && node scripts/generate-locales.mjs"
   },
   "keywords": [
     "chrome-extension",

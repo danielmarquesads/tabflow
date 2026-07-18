@@ -170,6 +170,10 @@ const en = {
   cmdSnoozeTab: { message: "TabFlow: Snooze current tab 1 hour" },
   cmdOpenArchive: { message: "TabFlow: Open archive" },
   cmdOpenOptions: { message: "TabFlow: Open settings" },
+  language: { message: "Language" },
+  languageHint: {
+    message: "Auto follows the browser language. Or pick any shipped locale.",
+  },
 };
 
 /** Lightweight translations — natural enough for UI chrome */
@@ -356,6 +360,10 @@ const locales = {
     cmdSnoozeTab: { message: "TabFlow: Adiar aba 1 hora" },
     cmdOpenArchive: { message: "TabFlow: Abrir arquivo" },
     cmdOpenOptions: { message: "TabFlow: Abrir configurações" },
+    language: { message: "Idioma" },
+    languageHint: {
+      message: "Auto segue o idioma do navegador. Ou escolha um dos idiomas inclusos.",
+    },
   },
 };
 

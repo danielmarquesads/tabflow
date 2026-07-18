@@ -441,5 +441,11 @@
   },
   "cmdOpenOptions": {
     "message": "TabFlow: Open settings"
+  },
+  "language": {
+    "message": "Language"
+  },
+  "languageHint": {
+    "message": "Auto follows the browser language. Or pick any shipped locale."
   }
 }

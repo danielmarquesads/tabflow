@@ -65,6 +65,8 @@ export const DEFAULT_SETTINGS = {
     // 9-17 work/balanced, evening research-ish defaults empty = use active
   },
   estMbPerTab: 50,
+  /** "auto" = browser UI language; else locale folder name e.g. pt_BR */
+  uiLocale: "auto",
 };
 
 export const UNIT_MS = {

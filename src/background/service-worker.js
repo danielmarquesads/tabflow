@@ -262,20 +262,17 @@ async function handleMessage(message, sender) {
 
     case "SET_PROFILE": {
       const id = message.profileId || "default";
-      const settings = await setSettings({ activeProfileId: id });
-      // sync threshold display from profile
       const profiles = await getProfiles();
       const p = profiles.find((x) => x.id === id);
+      const patch = { activeProfileId: id };
       if (p) {
-        await setSettings({
-          activeProfileId: id,
-          thresholdValue: p.thresholdValue,
-          thresholdUnit: p.thresholdUnit,
-          thresholdMs: thresholdToMs(p.thresholdValue, p.thresholdUnit),
-        });
+        patch.thresholdValue = p.thresholdValue;
+        patch.thresholdUnit = p.thresholdUnit;
+        patch.thresholdMs = thresholdToMs(p.thresholdValue, p.thresholdUnit);
       }
+      const settings = await setSettings(patch);
       await refreshBadge();
-      return { ok: true, settings: await getSettings() };
+      return { ok: true, settings };
     }
 
     case "SAVE_PROFILES": {

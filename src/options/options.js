@@ -1,4 +1,4 @@
-import { applyI18n, t } from "../shared/i18n.js";
+import { applyI18n, t, loadLocale, UI_LOCALES } from "../shared/i18n.js";
 
 const $ = (id) => document.getElementById(id);
 const panels = {};
@@ -15,6 +15,9 @@ const toastEl = $("toast");
 init();
 
 async function init() {
+  fillLocaleSelect();
+  const boot = await send({ type: "GET_STATE" });
+  if (boot?.ok) await loadLocale(boot.settings?.uiLocale || "auto");
   applyI18n();
   document.querySelectorAll("[data-tab]").forEach((btn) => {
     btn.addEventListener("click", () => selectTab(btn.dataset.tab));
@@ -29,6 +32,14 @@ async function init() {
   await refreshAll();
   const hash = (location.hash || "").replace("#", "");
   if (hash && panels[hash]) selectTab(hash);
+}
+
+function fillLocaleSelect() {
+  const sel = $("uiLocale");
+  if (!sel) return;
+  sel.innerHTML = UI_LOCALES.map(
+    (l) => `<option value="${l.code}">${l.label}</option>`
+  ).join("");
 }
 
 function selectTab(name) {
@@ -79,6 +90,14 @@ function bindGeneral() {
   ]) {
     $(id)?.addEventListener("change", () => saveGeneral(false));
   }
+  $("uiLocale")?.addEventListener("change", async () => {
+    await saveGeneral(false);
+    await loadLocale($("uiLocale").value || "auto");
+    applyI18n();
+    fillLocaleSelect();
+    $("uiLocale").value = (await send({ type: "GET_STATE" })).settings?.uiLocale || "auto";
+    toast(t("settingsSaved"));
+  });
 }
 
 async function saveGeneral(showToast) {
@@ -96,8 +115,11 @@ async function saveGeneral(showToast) {
     graceEnabled: $("graceEnabled").checked,
     graceSeconds: Math.max(0, Number($("graceSeconds").value) || 0),
     estMbPerTab: Math.max(1, Number($("estMbPerTab").value) || 50),
+    uiLocale: $("uiLocale")?.value || "auto",
   };
   await send({ type: "SET_SETTINGS", patch });
+  await loadLocale(patch.uiLocale);
+  applyI18n();
   if (showToast) toast(t("settingsSaved"));
   await refreshAll();
 }
@@ -456,6 +478,7 @@ async function refreshAll() {
   $("graceEnabled").checked = s.graceEnabled !== false;
   $("graceSeconds").value = Math.round((s.graceMs || 60000) / 1000);
   $("estMbPerTab").value = s.estMbPerTab ?? 50;
+  if ($("uiLocale")) $("uiLocale").value = s.uiLocale || "auto";
 
   $("statToday").textContent = String(res.stats?.closedToday ?? 0);
   $("statWeek").textContent = String(res.stats?.closedWeek ?? 0);
