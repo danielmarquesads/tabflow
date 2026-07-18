@@ -1,8 +1,13 @@
 import assert from "node:assert/strict";
-import { evaluateCandidates, isCloseableUrl } from "../src/lib/closer.js";
+import { evaluateCandidates, isCloseableUrl, performClose } from "../src/lib/closer.js";
 import { isWhitelisted } from "../src/lib/whitelist.js";
 import { pushArchive, searchArchive } from "../src/lib/archive.js";
 import { thresholdToMs } from "../src/lib/constants.js";
+import {
+  addProtected,
+  isProtectedUrl,
+  makeProtectedEntry,
+} from "../src/lib/protected.js";
 
 // threshold
 assert.equal(thresholdToMs(1, "hours"), 3600000);
@@ -49,9 +54,29 @@ const tabs = [
   { id: 3, windowId: 1, active: false, pinned: true, audible: false, url: "https://c.com", title: "C" },
 ];
 const activity = { 1: now, 2: now - 120_000, 3: now - 120_000 };
-const cands = evaluateCandidates({ tabs, activity, settings, whitelist: [], now });
+const cands = evaluateCandidates({
+  tabs,
+  activity,
+  settings,
+  whitelist: [],
+  protected: [],
+  now,
+});
 assert.equal(cands.length, 1);
 assert.equal(cands[0].tab.id, 2);
+
+// protected forever
+const prot = addProtected([], makeProtectedEntry({ url: "https://b.com/", title: "B" })).list;
+assert.equal(isProtectedUrl("https://b.com/", prot), true);
+const candsProt = evaluateCandidates({
+  tabs,
+  activity,
+  settings,
+  whitelist: [],
+  protected: prot,
+  now,
+});
+assert.equal(candsProt.length, 0);
 
 // paused
 assert.equal(
@@ -76,8 +101,6 @@ const floor = evaluateCandidates({
 assert.equal(floor.length, 0);
 
 // performClose archives only after successful close
-import { performClose } from "../src/lib/closer.js";
-
 let closedIds = [];
 const resultOk = await performClose(
   [{ tab: { id: 9, title: "X", url: "https://x.test", favIconUrl: "" } }],

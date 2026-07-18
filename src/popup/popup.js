@@ -1,3 +1,5 @@
+import { applyI18n, t } from "../shared/i18n.js";
+
 const $ = (id) => document.getElementById(id);
 
 const enabledToggle = $("enabledToggle");
@@ -14,6 +16,9 @@ const refreshPreview = $("refreshPreview");
 const runSweep = $("runSweep");
 const openArchive = $("openArchive");
 const openOptions = $("openOptions");
+const keepBtn = $("keepBtn");
+const keepLabel = $("keepLabel");
+const keepHint = $("keepHint");
 const toastEl = $("toast");
 
 let state = null;
@@ -21,16 +26,39 @@ let state = null;
 init();
 
 async function init() {
+  applyI18n();
   await loadState();
   bind();
   await loadPreview();
 }
 
 function bind() {
+  keepBtn.addEventListener("click", async () => {
+    if (!state?.activeTab?.url) {
+      toast(t("needThreshold"));
+      return;
+    }
+    if (state.activeTab.protected) {
+      const res = await send({ type: "UNPROTECT_TAB", tabId: state.activeTab.id });
+      if (res.ok) {
+        toast(t("tabUnprotectedToast"));
+        await loadState();
+        await loadPreview();
+      }
+      return;
+    }
+    const res = await send({ type: "PROTECT_TAB", tabId: state.activeTab.id, match: "url" });
+    if (res.ok) {
+      toast(t("tabProtectedToast"));
+      await loadState();
+      await loadPreview();
+    }
+  });
+
   enabledToggle.addEventListener("change", async () => {
     const patch = { enabled: enabledToggle.checked };
     if (enabledToggle.checked && (!state.settings.thresholdMs || state.settings.thresholdMs <= 0)) {
-      toast("Set and save a threshold first");
+      toast(t("needThreshold"));
       enabledToggle.checked = false;
       return;
     }
@@ -57,7 +85,7 @@ function bind() {
       },
     });
     if (res.ok) {
-      toast("Threshold saved · auto-close on");
+      toast(t("thresholdSaved"));
       await loadState();
       await loadPreview();
     }
@@ -69,7 +97,11 @@ function bind() {
     const res = await send({ type: "RUN_SWEEP" });
     runSweep.disabled = false;
     if (res.ok) {
-      toast(res.closedCount ? `Closed ${res.closedCount} tab(s)` : "Nothing eligible");
+      toast(
+        res.closedCount
+          ? t("closedN", [String(res.closedCount)])
+          : t("nothingEligible")
+      );
       await loadState();
       await loadPreview();
     }
@@ -97,34 +129,55 @@ async function loadState() {
   statToday.textContent = String(res.stats?.closedToday ?? 0);
   statTabs.textContent = String(res.tabCount ?? 0);
 
+  updateKeepUi(res.activeTab);
   updateStatusUi(s);
+}
+
+function updateKeepUi(activeTab) {
+  const protectedOn = !!activeTab?.protected;
+  keepBtn.classList.toggle("is-protected", protectedOn);
+  if (protectedOn) {
+    keepLabel.textContent = t("tabProtected");
+    keepHint.textContent = activeTab?.title || activeTab?.url || "";
+    keepBtn.textContent = t("removeKeep");
+  } else {
+    keepLabel.textContent = t("keepTabOpen");
+    keepHint.textContent = t("keepTabOpenHint");
+    keepBtn.textContent = t("keepTabOpen");
+  }
+  keepBtn.disabled = !activeTab?.url || activeTab.url.startsWith("chrome://");
 }
 
 function updateStatusUi(s) {
   statusPill.classList.remove("live", "paused");
   if (!s.enabled || !s.thresholdMs) {
-    statusPill.textContent = "Off";
-    statusHint.textContent = "Set a threshold to enable";
+    statusPill.textContent = t("statusOff");
+    statusHint.textContent = t("autoCloseHint");
   } else if (s.paused) {
-    statusPill.textContent = "Paused";
+    statusPill.textContent = t("statusPaused");
     statusPill.classList.add("paused");
-    statusHint.textContent = "Auto-close paused";
+    statusHint.textContent = t("pausedHint");
   } else {
-    statusPill.textContent = "Live";
+    statusPill.textContent = t("statusLive");
     statusPill.classList.add("live");
-    statusHint.textContent = `Idle ≥ ${s.thresholdValue} ${s.thresholdUnit}`;
+    statusHint.textContent = `≥ ${s.thresholdValue} ${t("unit" + cap(s.thresholdUnit))}`;
   }
+}
+
+function cap(unit) {
+  const map = { minutes: "Minutes", hours: "Hours", days: "Days", months: "Months" };
+  return map[unit] || "Hours";
 }
 
 async function loadPreview() {
   const res = await send({ type: "PREVIEW" });
   if (!res.ok) {
-    previewList.innerHTML = `<div class="empty">Could not load preview</div>`;
+    previewList.innerHTML = `<div class="empty">${escapeHtml(t("previewFail"))}</div>`;
     return;
   }
   const items = res.candidates || [];
   if (!items.length) {
-    previewList.innerHTML = `<div class="empty">No tabs eligible right now</div>`;
+    previewList.innerHTML = `<div class="empty">${escapeHtml(t("noEligible"))}</div>`;
     return;
   }
   previewList.innerHTML = items
@@ -133,7 +186,7 @@ async function loadPreview() {
     <div class="list-item" role="listitem">
       <div>
         <div class="title">${escapeHtml(c.title || c.url || "Tab")}</div>
-        <div class="sub mono">${formatIdle(c.idleMs)} idle · ${escapeHtml(shortUrl(c.url))}</div>
+        <div class="sub mono">${formatIdle(c.idleMs)} ${escapeHtml(t("idleSuffix"))} · ${escapeHtml(shortUrl(c.url))}</div>
       </div>
     </div>`
     )

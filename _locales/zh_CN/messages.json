@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "自动关闭不活跃标签，永久保留重要标签，并从本地归档恢复。免费开源。"
+  },
+  "brandTagline": {
+    "message": "本地 · 开源"
+  },
+  "statusOff": {
+    "message": "关闭"
+  },
+  "statusLive": {
+    "message": "运行中"
+  },
+  "statusPaused": {
+    "message": "已暂停"
+  },
+  "autoClose": {
+    "message": "自动关闭"
+  },
+  "autoCloseHint": {
+    "message": "设置阈值后启用"
+  },
+  "paused": {
+    "message": "已暂停"
+  },
+  "pausedHint": {
+    "message": "保留设置，停止关闭"
+  },
+  "thresholdLabel": {
+    "message": "不活跃阈值"
+  },
+  "unitMinutes": {
+    "message": "分钟"
+  },
+  "unitHours": {
+    "message": "小时"
+  },
+  "unitDays": {
+    "message": "天"
+  },
+  "unitMonths": {
+    "message": "月"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "closedToday": {
+    "message": "今日关闭"
+  },
+  "openTabs": {
+    "message": "打开的标签"
+  },
+  "wouldCloseNow": {
+    "message": "即将关闭"
+  },
+  "refresh": {
+    "message": "刷新"
+  },
+  "closeEligible": {
+    "message": "立即关闭符合条件的"
+  },
+  "archive": {
+    "message": "归档"
+  },
+  "settings": {
+    "message": "设置"
+  },
+  "keepTabOpen": {
+    "message": "保持此标签打开"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow 永不自动关闭它"
+  },
+  "removeKeep": {
+    "message": "取消保护"
+  },
+  "tabProtected": {
+    "message": "此标签已受保护"
+  },
+  "tabProtectedToast": {
+    "message": "标签已保存 — 不会自动关闭"
+  },
+  "tabUnprotectedToast": {
+    "message": "已取消保护"
+  },
+  "needThreshold": {
+    "message": "请先设置并保存阈值"
+  },
+  "thresholdSaved": {
+    "message": "阈值已保存 · 自动关闭开启"
+  },
+  "closedN": {
+    "message": "已关闭 $1 个标签",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "没有符合条件的"
+  },
+  "noEligible": {
+    "message": "当前没有可关闭的标签"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "空闲"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow：保持标签打开"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow：取消保护"
+  },
+  "optionsTitle": {
+    "message": "TabFlow 设置"
+  },
+  "navGeneral": {
+    "message": "常规"
+  },
+  "navWhitelist": {
+    "message": "白名单"
+  },
+  "navKept": {
+    "message": "已保护标签"
+  },
+  "navArchive": {
+    "message": "归档"
+  },
+  "navData": {
+    "message": "数据"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "启用自动关闭"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "保存常规"
+  },
+  "protectPinned": {
+    "message": "保护固定标签"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "保护有声音的标签"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "自动同步设置"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "添加规则"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "移除"
+  },
+  "keptTitle": {
+    "message": "已保护标签"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "暂无。请使用弹窗中的按钮。"
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "恢复"
+  },
+  "delete": {
+    "message": "删除"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "导出备份"
+  },
+  "importBackup": {
+    "message": "导入备份"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "立即同步"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "设置已保存"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Auto-close inactive tabs, keep important ones open forever, and restore from a local archive. Free and open source."
+  },
+  "brandTagline": {
+    "message": "Local · open source"
+  },
+  "statusOff": {
+    "message": "Off"
+  },
+  "statusLive": {
+    "message": "Live"
+  },
+  "statusPaused": {
+    "message": "Paused"
+  },
+  "autoClose": {
+    "message": "Auto-close"
+  },
+  "autoCloseHint": {
+    "message": "Set a threshold to enable"
+  },
+  "paused": {
+    "message": "Paused"
+  },
+  "pausedHint": {
+    "message": "Keep settings, stop closing"
+  },
+  "thresholdLabel": {
+    "message": "Inactivity threshold"
+  },
+  "unitMinutes": {
+    "message": "minutes"
+  },
+  "unitHours": {
+    "message": "hours"
+  },
+  "unitDays": {
+    "message": "days"
+  },
+  "unitMonths": {
+    "message": "months"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "closedToday": {
+    "message": "Closed today"
+  },
+  "openTabs": {
+    "message": "Open tabs"
+  },
+  "wouldCloseNow": {
+    "message": "Would close now"
+  },
+  "refresh": {
+    "message": "Refresh"
+  },
+  "closeEligible": {
+    "message": "Close eligible now"
+  },
+  "archive": {
+    "message": "Archive"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "keepTabOpen": {
+    "message": "Keep this tab open"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow will never auto-close it"
+  },
+  "removeKeep": {
+    "message": "Remove keep-open"
+  },
+  "tabProtected": {
+    "message": "This tab is protected"
+  },
+  "tabProtectedToast": {
+    "message": "Tab saved — never auto-closed"
+  },
+  "tabUnprotectedToast": {
+    "message": "Protection removed"
+  },
+  "needThreshold": {
+    "message": "Set and save a threshold first"
+  },
+  "thresholdSaved": {
+    "message": "Threshold saved · auto-close on"
+  },
+  "closedN": {
+    "message": "Closed $1 tab(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Nothing eligible"
+  },
+  "noEligible": {
+    "message": "No tabs eligible right now"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "idle"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Keep this tab open"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Remove keep-open"
+  },
+  "optionsTitle": {
+    "message": "TabFlow Settings"
+  },
+  "navGeneral": {
+    "message": "General"
+  },
+  "navWhitelist": {
+    "message": "Whitelist"
+  },
+  "navKept": {
+    "message": "Kept tabs"
+  },
+  "navArchive": {
+    "message": "Archive"
+  },
+  "navData": {
+    "message": "Data"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "Enable auto-close"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Save general"
+  },
+  "protectPinned": {
+    "message": "Protect pinned tabs"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Protect audio tabs"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Auto-sync settings"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Add rule"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "keptTitle": {
+    "message": "Kept tabs"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "No kept tabs yet. Use the Keep button in the popup."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Restore"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Export backup"
+  },
+  "importBackup": {
+    "message": "Import backup"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Sync now"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Settings saved"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

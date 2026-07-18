@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Автозакрытие неактивных вкладок, важные всегда открыты, восстановление из локального архива. Бесплатно и open source."
+  },
+  "brandTagline": {
+    "message": "Локально · open source"
+  },
+  "statusOff": {
+    "message": "Выкл"
+  },
+  "statusLive": {
+    "message": "Активно"
+  },
+  "statusPaused": {
+    "message": "Пауза"
+  },
+  "autoClose": {
+    "message": "Автозакрытие"
+  },
+  "autoCloseHint": {
+    "message": "Задайте порог для включения"
+  },
+  "paused": {
+    "message": "Пауза"
+  },
+  "pausedHint": {
+    "message": "Настройки сохранены, закрытие остановлено"
+  },
+  "thresholdLabel": {
+    "message": "Порог неактивности"
+  },
+  "unitMinutes": {
+    "message": "минуты"
+  },
+  "unitHours": {
+    "message": "часы"
+  },
+  "unitDays": {
+    "message": "дни"
+  },
+  "unitMonths": {
+    "message": "месяцы"
+  },
+  "save": {
+    "message": "Сохранить"
+  },
+  "closedToday": {
+    "message": "Закрыто сегодня"
+  },
+  "openTabs": {
+    "message": "Открытые вкладки"
+  },
+  "wouldCloseNow": {
+    "message": "Закроются сейчас"
+  },
+  "refresh": {
+    "message": "Обновить"
+  },
+  "closeEligible": {
+    "message": "Закрыть подходящие"
+  },
+  "archive": {
+    "message": "Архив"
+  },
+  "settings": {
+    "message": "Настройки"
+  },
+  "keepTabOpen": {
+    "message": "Держать вкладку открытой"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow никогда не закроет её сам"
+  },
+  "removeKeep": {
+    "message": "Снять защиту"
+  },
+  "tabProtected": {
+    "message": "Вкладка защищена"
+  },
+  "tabProtectedToast": {
+    "message": "Вкладка сохранена — без автозакрытия"
+  },
+  "tabUnprotectedToast": {
+    "message": "Защита снята"
+  },
+  "needThreshold": {
+    "message": "Сначала сохраните порог"
+  },
+  "thresholdSaved": {
+    "message": "Порог сохранён · автозакрытие вкл"
+  },
+  "closedN": {
+    "message": "Закрыто вкладок: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Нечего закрывать"
+  },
+  "noEligible": {
+    "message": "Нет подходящих вкладок"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "простой"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Держать открытой"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Снять защиту"
+  },
+  "optionsTitle": {
+    "message": "Настройки TabFlow"
+  },
+  "navGeneral": {
+    "message": "Общие"
+  },
+  "navWhitelist": {
+    "message": "Белый список"
+  },
+  "navKept": {
+    "message": "Защищённые"
+  },
+  "navArchive": {
+    "message": "Архив"
+  },
+  "navData": {
+    "message": "Данные"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "Включить автозакрытие"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Сохранить"
+  },
+  "protectPinned": {
+    "message": "Защищать закреплённые"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Защищать со звуком"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Синхронизация настроек"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Добавить правило"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Убрать"
+  },
+  "keptTitle": {
+    "message": "Защищённые вкладки"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "Пока пусто. Используйте кнопку в popup."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Восстановить"
+  },
+  "delete": {
+    "message": "Удалить"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Экспорт"
+  },
+  "importBackup": {
+    "message": "Импорт"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Синхронизировать"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Сохранено"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Tự đóng thẻ không hoạt động, giữ thẻ quan trọng luôn mở, khôi phục từ kho lưu trữ cục bộ. Miễn phí và mã nguồn mở."
+  },
+  "brandTagline": {
+    "message": "Cục bộ · mã nguồn mở"
+  },
+  "statusOff": {
+    "message": "Tắt"
+  },
+  "statusLive": {
+    "message": "Đang chạy"
+  },
+  "statusPaused": {
+    "message": "Tạm dừng"
+  },
+  "autoClose": {
+    "message": "Tự đóng"
+  },
+  "autoCloseHint": {
+    "message": "Đặt ngưỡng để bật"
+  },
+  "paused": {
+    "message": "Tạm dừng"
+  },
+  "pausedHint": {
+    "message": "Giữ cài đặt, ngừng đóng"
+  },
+  "thresholdLabel": {
+    "message": "Ngưỡng không hoạt động"
+  },
+  "unitMinutes": {
+    "message": "phút"
+  },
+  "unitHours": {
+    "message": "giờ"
+  },
+  "unitDays": {
+    "message": "ngày"
+  },
+  "unitMonths": {
+    "message": "tháng"
+  },
+  "save": {
+    "message": "Lưu"
+  },
+  "closedToday": {
+    "message": "Đã đóng hôm nay"
+  },
+  "openTabs": {
+    "message": "Thẻ đang mở"
+  },
+  "wouldCloseNow": {
+    "message": "Sẽ đóng ngay"
+  },
+  "refresh": {
+    "message": "Làm mới"
+  },
+  "closeEligible": {
+    "message": "Đóng các thẻ đủ điều kiện"
+  },
+  "archive": {
+    "message": "Kho lưu trữ"
+  },
+  "settings": {
+    "message": "Cài đặt"
+  },
+  "keepTabOpen": {
+    "message": "Giữ thẻ này mở"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow sẽ không bao giờ tự đóng"
+  },
+  "removeKeep": {
+    "message": "Gỡ bảo vệ"
+  },
+  "tabProtected": {
+    "message": "Thẻ này được bảo vệ"
+  },
+  "tabProtectedToast": {
+    "message": "Đã lưu thẻ — không tự đóng"
+  },
+  "tabUnprotectedToast": {
+    "message": "Đã gỡ bảo vệ"
+  },
+  "needThreshold": {
+    "message": "Hãy lưu ngưỡng trước"
+  },
+  "thresholdSaved": {
+    "message": "Đã lưu ngưỡng · tự đóng bật"
+  },
+  "closedN": {
+    "message": "Đã đóng $1 thẻ",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Không có thẻ đủ điều kiện"
+  },
+  "noEligible": {
+    "message": "Không có thẻ để đóng"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "nhàn rỗi"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Giữ thẻ mở"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Gỡ bảo vệ"
+  },
+  "optionsTitle": {
+    "message": "Cài đặt TabFlow"
+  },
+  "navGeneral": {
+    "message": "Chung"
+  },
+  "navWhitelist": {
+    "message": "Danh sách trắng"
+  },
+  "navKept": {
+    "message": "Thẻ đã giữ"
+  },
+  "navArchive": {
+    "message": "Kho lưu trữ"
+  },
+  "navData": {
+    "message": "Dữ liệu"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "Bật tự đóng"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Lưu chung"
+  },
+  "protectPinned": {
+    "message": "Bảo vệ thẻ ghim"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Bảo vệ thẻ có âm thanh"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Đồng bộ cài đặt"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Thêm quy tắc"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Gỡ"
+  },
+  "keptTitle": {
+    "message": "Thẻ đã giữ"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "Chưa có. Dùng nút trên popup."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Khôi phục"
+  },
+  "delete": {
+    "message": "Xóa"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Xuất bản sao"
+  },
+  "importBackup": {
+    "message": "Nhập bản sao"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Đồng bộ ngay"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Đã lưu cài đặt"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Cierra pestañas inactivas, mantén las importantes abiertas y restaura desde un archivo local. Gratis y open source."
+  },
+  "brandTagline": {
+    "message": "Local · código abierto"
+  },
+  "statusOff": {
+    "message": "Apagado"
+  },
+  "statusLive": {
+    "message": "Activo"
+  },
+  "statusPaused": {
+    "message": "Pausado"
+  },
+  "autoClose": {
+    "message": "Cierre automático"
+  },
+  "autoCloseHint": {
+    "message": "Define un umbral para activar"
+  },
+  "paused": {
+    "message": "Pausado"
+  },
+  "pausedHint": {
+    "message": "Mantiene ajustes, deja de cerrar"
+  },
+  "thresholdLabel": {
+    "message": "Umbral de inactividad"
+  },
+  "unitMinutes": {
+    "message": "minutos"
+  },
+  "unitHours": {
+    "message": "horas"
+  },
+  "unitDays": {
+    "message": "días"
+  },
+  "unitMonths": {
+    "message": "meses"
+  },
+  "save": {
+    "message": "Guardar"
+  },
+  "closedToday": {
+    "message": "Cerradas hoy"
+  },
+  "openTabs": {
+    "message": "Pestañas abiertas"
+  },
+  "wouldCloseNow": {
+    "message": "Se cerrarían ahora"
+  },
+  "refresh": {
+    "message": "Actualizar"
+  },
+  "closeEligible": {
+    "message": "Cerrar elegibles ahora"
+  },
+  "archive": {
+    "message": "Archivo"
+  },
+  "settings": {
+    "message": "Ajustes"
+  },
+  "keepTabOpen": {
+    "message": "Mantener esta pestaña abierta"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow nunca la cerrará automáticamente"
+  },
+  "removeKeep": {
+    "message": "Quitar protección"
+  },
+  "tabProtected": {
+    "message": "Esta pestaña está protegida"
+  },
+  "tabProtectedToast": {
+    "message": "Pestaña guardada — no se cierra sola"
+  },
+  "tabUnprotectedToast": {
+    "message": "Protección eliminada"
+  },
+  "needThreshold": {
+    "message": "Define y guarda un umbral primero"
+  },
+  "thresholdSaved": {
+    "message": "Umbral guardado · cierre automático activo"
+  },
+  "closedN": {
+    "message": "Se cerraron $1 pestaña(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Nada elegible"
+  },
+  "noEligible": {
+    "message": "No hay pestañas elegibles"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "inactiva"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Mantener pestaña abierta"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Quitar protección"
+  },
+  "optionsTitle": {
+    "message": "Ajustes de TabFlow"
+  },
+  "navGeneral": {
+    "message": "General"
+  },
+  "navWhitelist": {
+    "message": "Lista blanca"
+  },
+  "navKept": {
+    "message": "Pestañas guardadas"
+  },
+  "navArchive": {
+    "message": "Archivo"
+  },
+  "navData": {
+    "message": "Datos"
+  },
+  "sideNote": {
+    "message": "Los ajustes y pestañas guardadas se sincronizan con Chrome si está activado."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Controla cuándo se cierran las pestañas inactivas."
+  },
+  "enableAutoClose": {
+    "message": "Activar cierre automático"
+  },
+  "enableHint": {
+    "message": "Nada se cierra hasta definir el umbral"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Guardar general"
+  },
+  "protectPinned": {
+    "message": "Proteger fijadas"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Proteger con audio"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Mínimo de pestañas por ventana"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Sincronizar ajustes"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restaura tras reinstalar"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Añadir regla"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Quitar"
+  },
+  "keptTitle": {
+    "message": "Pestañas guardadas"
+  },
+  "keptDesc": {
+    "message": "Pestañas que nunca se cierran solas. Guardado automático y sync con Chrome."
+  },
+  "noKept": {
+    "message": "Aún no hay pestañas guardadas. Usa el botón Mantener del popup."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Título o URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Restaurar"
+  },
+  "delete": {
+    "message": "Eliminar"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Exportar copia"
+  },
+  "importBackup": {
+    "message": "Importar copia"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Sincronizar ahora"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Ajustes guardados"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

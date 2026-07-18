@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "إغلاق التبويبات غير النشطة تلقائيًا، الإبقاء على المهمة مفتوحة، والاستعادة من أرشيف محلي. مجاني ومفتوح المصدر."
+  },
+  "brandTagline": {
+    "message": "محلي · مفتوح المصدر"
+  },
+  "statusOff": {
+    "message": "إيقاف"
+  },
+  "statusLive": {
+    "message": "نشط"
+  },
+  "statusPaused": {
+    "message": "متوقف"
+  },
+  "autoClose": {
+    "message": "إغلاق تلقائي"
+  },
+  "autoCloseHint": {
+    "message": "عيّن حدًا زمنيًا للتفعيل"
+  },
+  "paused": {
+    "message": "متوقف"
+  },
+  "pausedHint": {
+    "message": "يحفظ الإعدادات ويتوقف عن الإغلاق"
+  },
+  "thresholdLabel": {
+    "message": "حد الخمول"
+  },
+  "unitMinutes": {
+    "message": "دقائق"
+  },
+  "unitHours": {
+    "message": "ساعات"
+  },
+  "unitDays": {
+    "message": "أيام"
+  },
+  "unitMonths": {
+    "message": "أشهر"
+  },
+  "save": {
+    "message": "حفظ"
+  },
+  "closedToday": {
+    "message": "أُغلق اليوم"
+  },
+  "openTabs": {
+    "message": "تبويبات مفتوحة"
+  },
+  "wouldCloseNow": {
+    "message": "ستُغلق الآن"
+  },
+  "refresh": {
+    "message": "تحديث"
+  },
+  "closeEligible": {
+    "message": "إغلاق المؤهلة الآن"
+  },
+  "archive": {
+    "message": "الأرشيف"
+  },
+  "settings": {
+    "message": "الإعدادات"
+  },
+  "keepTabOpen": {
+    "message": "أبقِ هذا التبويب مفتوحًا"
+  },
+  "keepTabOpenHint": {
+    "message": "لن يغلقه TabFlow تلقائيًا أبدًا"
+  },
+  "removeKeep": {
+    "message": "إزالة الحماية"
+  },
+  "tabProtected": {
+    "message": "هذا التبويب محمي"
+  },
+  "tabProtectedToast": {
+    "message": "تم حفظ التبويب — بلا إغلاق تلقائي"
+  },
+  "tabUnprotectedToast": {
+    "message": "أُزيلت الحماية"
+  },
+  "needThreshold": {
+    "message": "احفظ الحد الزمني أولًا"
+  },
+  "thresholdSaved": {
+    "message": "حُفظ الحد · الإغلاق التلقائي مفعّل"
+  },
+  "closedN": {
+    "message": "أُغلق $1 تبويب",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "لا شيء مؤهل"
+  },
+  "noEligible": {
+    "message": "لا تبويبات مؤهلة الآن"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "خامل"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: أبقِ التبويب مفتوحًا"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: إزالة الحماية"
+  },
+  "optionsTitle": {
+    "message": "إعدادات TabFlow"
+  },
+  "navGeneral": {
+    "message": "عام"
+  },
+  "navWhitelist": {
+    "message": "القائمة البيضاء"
+  },
+  "navKept": {
+    "message": "المحفوظة"
+  },
+  "navArchive": {
+    "message": "الأرشيف"
+  },
+  "navData": {
+    "message": "البيانات"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "تفعيل الإغلاق التلقائي"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "حفظ العام"
+  },
+  "protectPinned": {
+    "message": "حماية المثبتة"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "حماية الصوت"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "مزامنة الإعدادات"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "إضافة قاعدة"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "إزالة"
+  },
+  "keptTitle": {
+    "message": "التبويبات المحفوظة"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "لا شيء بعد. استخدم زر الإبقاء في النافذة."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "استعادة"
+  },
+  "delete": {
+    "message": "حذف"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "تصدير نسخة"
+  },
+  "importBackup": {
+    "message": "استيراد نسخة"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "مزامنة الآن"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "تم الحفظ"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

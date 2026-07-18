@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "निष्क्रिय टैब अपने आप बंद करें, ज़रूरी टैब हमेशा खुले रखें, स्थानीय संग्रह से पुनर्स्थापित करें। मुफ़्त और ओपन सोर्स।"
+  },
+  "brandTagline": {
+    "message": "लोकल · ओपन सोर्स"
+  },
+  "statusOff": {
+    "message": "बंद"
+  },
+  "statusLive": {
+    "message": "सक्रिय"
+  },
+  "statusPaused": {
+    "message": "रोका गया"
+  },
+  "autoClose": {
+    "message": "ऑटो-बंद"
+  },
+  "autoCloseHint": {
+    "message": "सक्रिय करने के लिए सीमा सेट करें"
+  },
+  "paused": {
+    "message": "रोका गया"
+  },
+  "pausedHint": {
+    "message": "सेटिंग रखें, बंद करना रोकें"
+  },
+  "thresholdLabel": {
+    "message": "निष्क्रियता सीमा"
+  },
+  "unitMinutes": {
+    "message": "मिनट"
+  },
+  "unitHours": {
+    "message": "घंटे"
+  },
+  "unitDays": {
+    "message": "दिन"
+  },
+  "unitMonths": {
+    "message": "महीने"
+  },
+  "save": {
+    "message": "सहेजें"
+  },
+  "closedToday": {
+    "message": "आज बंद"
+  },
+  "openTabs": {
+    "message": "खुले टैब"
+  },
+  "wouldCloseNow": {
+    "message": "अभी बंद होंगे"
+  },
+  "refresh": {
+    "message": "रीफ़्रेश"
+  },
+  "closeEligible": {
+    "message": "योग्य अभी बंद करें"
+  },
+  "archive": {
+    "message": "संग्रह"
+  },
+  "settings": {
+    "message": "सेटिंग्स"
+  },
+  "keepTabOpen": {
+    "message": "यह टैब खुला रखें"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow इसे कभी अपने आप नहीं बंद करेगा"
+  },
+  "removeKeep": {
+    "message": "सुरक्षा हटाएँ"
+  },
+  "tabProtected": {
+    "message": "यह टैब सुरक्षित है"
+  },
+  "tabProtectedToast": {
+    "message": "टैब सहेजा गया — ऑटो-बंद नहीं"
+  },
+  "tabUnprotectedToast": {
+    "message": "सुरक्षा हटाई गई"
+  },
+  "needThreshold": {
+    "message": "पहले सीमा सहेजें"
+  },
+  "thresholdSaved": {
+    "message": "सीमा सहेजी · ऑटो-बंद चालू"
+  },
+  "closedN": {
+    "message": "$1 टैब बंद",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "कुछ योग्य नहीं"
+  },
+  "noEligible": {
+    "message": "कोई योग्य टैब नहीं"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "निष्क्रिय"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: टैब खुला रखें"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: सुरक्षा हटाएँ"
+  },
+  "optionsTitle": {
+    "message": "TabFlow सेटिंग्स"
+  },
+  "navGeneral": {
+    "message": "सामान्य"
+  },
+  "navWhitelist": {
+    "message": "व्हाइटलिस्ट"
+  },
+  "navKept": {
+    "message": "रखा गया"
+  },
+  "navArchive": {
+    "message": "संग्रह"
+  },
+  "navData": {
+    "message": "डेटा"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "ऑटो-बंद चालू करें"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "सामान्य सहेजें"
+  },
+  "protectPinned": {
+    "message": "पिन सुरक्षित रखें"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "ऑडियो सुरक्षित रखें"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "सेटिंग सिंक"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "नियम जोड़ें"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "हटाएँ"
+  },
+  "keptTitle": {
+    "message": "सुरक्षित टैब"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "अभी कोई नहीं। पॉपअप बटन उपयोग करें।"
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "पुनर्स्थापित"
+  },
+  "delete": {
+    "message": "हटाएँ"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "बैकअप निर्यात"
+  },
+  "importBackup": {
+    "message": "बैकअप आयात"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "अभी सिंक करें"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "सेटिंग सहेजी गईं"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

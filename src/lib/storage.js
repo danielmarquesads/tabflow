@@ -1,4 +1,11 @@
-import { DEFAULT_SETTINGS, STORAGE_KEYS, todayKey } from "./constants.js";
+import {
+  DEFAULT_SETTINGS,
+  STORAGE_KEYS,
+  SYNC_MIRROR_KEYS,
+  todayKey,
+} from "./constants.js";
+
+let syncTimer = null;
 
 export async function getAll() {
   const data = await chrome.storage.local.get(Object.values(STORAGE_KEYS));
@@ -8,6 +15,7 @@ export async function getAll() {
     archive: Array.isArray(data.archive) ? data.archive : [],
     stats: normalizeStats(data.stats),
     whitelist: Array.isArray(data.whitelist) ? data.whitelist : [],
+    protected: Array.isArray(data.protected) ? data.protected : [],
   };
 }
 
@@ -20,6 +28,7 @@ export async function setSettings(partial) {
   const current = await getSettings();
   const next = { ...current, ...partial };
   await chrome.storage.local.set({ [STORAGE_KEYS.settings]: next });
+  scheduleSyncMirror();
   return next;
 }
 
@@ -45,7 +54,6 @@ export async function clearActivity(tabId) {
   await setActivity(activity);
 }
 
-/** Drop activity keys for tabs that no longer exist. */
 export async function pruneActivity(liveTabIds) {
   const activity = await getActivity();
   const live = new Set((liveTabIds || []).map(String));
@@ -76,6 +84,17 @@ export async function getWhitelist() {
 
 export async function setWhitelist(whitelist) {
   await chrome.storage.local.set({ [STORAGE_KEYS.whitelist]: whitelist });
+  scheduleSyncMirror();
+}
+
+export async function getProtected() {
+  const { protected: list } = await chrome.storage.local.get(STORAGE_KEYS.protected);
+  return Array.isArray(list) ? list : [];
+}
+
+export async function setProtected(list) {
+  await chrome.storage.local.set({ [STORAGE_KEYS.protected]: list });
+  scheduleSyncMirror();
 }
 
 export async function getStats() {
@@ -112,10 +131,11 @@ function normalizeStats(stats) {
 export async function exportBundle() {
   const all = await getAll();
   return {
-    version: 1,
+    version: 2,
     exportedAt: new Date().toISOString(),
     settings: all.settings,
     whitelist: all.whitelist,
+    protected: all.protected,
     archive: all.archive,
     stats: all.stats,
   };
@@ -128,8 +148,99 @@ export async function importBundle(bundle) {
   const patch = {};
   if (bundle.settings) patch.settings = { ...DEFAULT_SETTINGS, ...bundle.settings };
   if (Array.isArray(bundle.whitelist)) patch.whitelist = bundle.whitelist;
+  if (Array.isArray(bundle.protected)) patch.protected = bundle.protected;
   if (Array.isArray(bundle.archive)) patch.archive = bundle.archive;
   if (bundle.stats) patch.stats = normalizeStats(bundle.stats);
   await chrome.storage.local.set(patch);
+  scheduleSyncMirror();
   return getAll();
 }
+
+function scheduleSyncMirror() {
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(() => {
+    mirrorToSync().catch(() => {});
+  }, 400);
+}
+
+/** Push durable config to Chrome sync (survives reinstall when signed into Chrome). */
+export async function mirrorToSync() {
+  const settings = await getSettings();
+  if (settings.autoSync === false) return { ok: false, skipped: true };
+
+  const all = await getAll();
+  const payload = {
+    tf_v: 2,
+    tf_settings: all.settings,
+    tf_whitelist: all.whitelist,
+    tf_protected: all.protected,
+    tf_updatedAt: Date.now(),
+  };
+
+  // Keep under sync quota (~100KB); trim protected/whitelist if needed
+  let json = JSON.stringify(payload);
+  if (json.length > 90000) {
+    payload.tf_protected = (payload.tf_protected || []).slice(0, 80);
+    payload.tf_whitelist = (payload.tf_whitelist || []).slice(0, 80);
+    json = JSON.stringify(payload);
+  }
+  if (json.length > 100000) {
+    payload.tf_protected = (payload.tf_protected || []).slice(0, 30);
+    payload.tf_whitelist = (payload.tf_whitelist || []).slice(0, 30);
+  }
+
+  await chrome.storage.sync.set(payload);
+  return { ok: true };
+}
+
+/** On install: if local is empty-ish, hydrate from sync. */
+export async function hydrateFromSyncIfNeeded() {
+  try {
+    const local = await getAll();
+    const hasLocalConfig =
+      (local.whitelist && local.whitelist.length > 0) ||
+      (local.protected && local.protected.length > 0) ||
+      (local.settings && local.settings.thresholdMs > 0);
+
+    const sync = await chrome.storage.sync.get([
+      "tf_v",
+      "tf_settings",
+      "tf_whitelist",
+      "tf_protected",
+    ]);
+
+    if (!sync.tf_v && !sync.tf_settings) return { restored: false };
+
+    if (hasLocalConfig) {
+      // Still merge protected URLs missing locally
+      const remoteProtected = Array.isArray(sync.tf_protected) ? sync.tf_protected : [];
+      if (remoteProtected.length) {
+        const map = new Map(local.protected.map((p) => [p.url + "|" + (p.match || "url"), p]));
+        let changed = false;
+        for (const p of remoteProtected) {
+          const key = (p.url || "") + "|" + (p.match || "url");
+          if (!map.has(key)) {
+            map.set(key, p);
+            changed = true;
+          }
+        }
+        if (changed) await setProtected([...map.values()]);
+      }
+      return { restored: false, merged: true };
+    }
+
+    const patch = {};
+    if (sync.tf_settings) patch.settings = { ...DEFAULT_SETTINGS, ...sync.tf_settings };
+    if (Array.isArray(sync.tf_whitelist)) patch.whitelist = sync.tf_whitelist;
+    if (Array.isArray(sync.tf_protected)) patch.protected = sync.tf_protected;
+    if (Object.keys(patch).length) {
+      await chrome.storage.local.set(patch);
+      return { restored: true };
+    }
+  } catch {
+    // sync may be unavailable
+  }
+  return { restored: false };
+}
+
+export { SYNC_MIRROR_KEYS };

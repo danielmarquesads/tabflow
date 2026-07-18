@@ -16,24 +16,41 @@ import {
   pruneActivity,
   getArchive,
   getWhitelist,
-  getStats,
+  getProtected,
+  setProtected,
   exportBundle,
   importBundle,
   setWhitelist,
+  hydrateFromSyncIfNeeded,
+  mirrorToSync,
 } from "../lib/storage.js";
 import { evaluateCandidates, performClose } from "../lib/closer.js";
 import { searchArchive, removeArchiveEntry } from "../lib/archive.js";
 import { validateRule } from "../lib/whitelist.js";
+import {
+  addProtected,
+  findProtectedEntry,
+  makeProtectedEntry,
+  removeProtected,
+} from "../lib/protected.js";
+
+const CONTEXT_KEEP = "tabflow-keep-tab";
+const CONTEXT_UNKEEP = "tabflow-unkeep-tab";
 
 chrome.runtime.onInstalled.addListener(async () => {
+  await hydrateFromSyncIfNeeded();
   await ensureAlarm();
   await seedActivityForOpenTabs();
+  await setupContextMenus();
+  await mirrorToSync();
   await refreshBadge();
 });
 
 chrome.runtime.onStartup.addListener(async () => {
+  await hydrateFromSyncIfNeeded();
   await ensureAlarm();
   await seedActivityForOpenTabs();
+  await setupContextMenus();
   await refreshBadge();
 });
 
@@ -41,6 +58,24 @@ async function ensureAlarm() {
   const existing = await chrome.alarms.get(ALARM_CLOSE);
   if (!existing) {
     chrome.alarms.create(ALARM_CLOSE, { periodInMinutes: ALARM_PERIOD_MINUTES });
+  }
+}
+
+async function setupContextMenus() {
+  try {
+    await chrome.contextMenus.removeAll();
+    chrome.contextMenus.create({
+      id: CONTEXT_KEEP,
+      title: chrome.i18n.getMessage("contextKeepTab") || "TabFlow: Keep this tab open",
+      contexts: ["page", "action"],
+    });
+    chrome.contextMenus.create({
+      id: CONTEXT_UNKEEP,
+      title: chrome.i18n.getMessage("contextUnkeepTab") || "TabFlow: Remove keep-open",
+      contexts: ["page", "action"],
+    });
+  } catch {
+    // contextMenus permission missing or unavailable
   }
 }
 
@@ -84,6 +119,16 @@ chrome.tabs.onRemoved.addListener(async (tabId) => {
   await clearActivity(tabId);
 });
 
+chrome.contextMenus?.onClicked?.addListener(async (info, tab) => {
+  if (!tab?.id) return;
+  if (info.menuItemId === CONTEXT_KEEP) {
+    await protectTab(tab, "url");
+  } else if (info.menuItemId === CONTEXT_UNKEEP) {
+    await unprotectTab(tab);
+  }
+  await refreshBadge();
+});
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   handleMessage(message, sender)
     .then(sendResponse)
@@ -108,13 +153,26 @@ async function handleMessage(message, sender) {
     case "GET_STATE": {
       const all = await getAll();
       const tabs = await chrome.tabs.query({});
+      const [active] = await chrome.tabs.query({ active: true, currentWindow: true });
+      const activeProtected = active?.url
+        ? !!findProtectedEntry(active.url, all.protected)
+        : false;
       return {
         ok: true,
         settings: all.settings,
         whitelist: all.whitelist,
+        protected: all.protected,
         archive: all.archive,
         stats: all.stats,
         tabCount: tabs.length,
+        activeTab: active
+          ? {
+              id: active.id,
+              title: active.title,
+              url: active.url,
+              protected: activeProtected,
+            }
+          : null,
       };
     }
 
@@ -142,6 +200,7 @@ async function handleMessage(message, sender) {
         activity: all.activity,
         settings: all.settings,
         whitelist: all.whitelist,
+        protected: all.protected,
       });
       return {
         ok: true,
@@ -160,6 +219,32 @@ async function handleMessage(message, sender) {
       const result = await runCloseSweep();
       await refreshBadge();
       return { ok: true, ...result };
+    }
+
+    case "PROTECT_TAB": {
+      const tab =
+        message.tabId != null
+          ? await chrome.tabs.get(message.tabId)
+          : (await chrome.tabs.query({ active: true, currentWindow: true }))[0];
+      if (!tab?.url) return { ok: false, error: "No tab" };
+      const result = await protectTab(tab, message.match || "url");
+      await refreshBadge();
+      return { ok: true, ...result };
+    }
+
+    case "UNPROTECT_TAB": {
+      const tab =
+        message.tabId != null
+          ? await chrome.tabs.get(message.tabId)
+          : (await chrome.tabs.query({ active: true, currentWindow: true }))[0];
+      if (!tab?.url && !message.id) return { ok: false, error: "No tab" };
+      const list = await unprotectTab(tab, message.id);
+      await refreshBadge();
+      return { ok: true, protected: list };
+    }
+
+    case "LIST_PROTECTED": {
+      return { ok: true, protected: await getProtected() };
     }
 
     case "SEARCH_ARCHIVE": {
@@ -226,6 +311,11 @@ async function handleMessage(message, sender) {
       return { ok: true };
     }
 
+    case "SYNC_NOW": {
+      const r = await mirrorToSync();
+      return { ok: true, ...r };
+    }
+
     case "GET_FAB_CONFIG": {
       const settings = await getSettings();
       const archive = await getArchive();
@@ -241,6 +331,23 @@ async function handleMessage(message, sender) {
   }
 }
 
+async function protectTab(tab, match = "url") {
+  const list = await getProtected();
+  const entry = makeProtectedEntry(tab, match);
+  const { list: next, entry: saved, added } = addProtected(list, entry);
+  await setProtected(next);
+  return { protected: next, entry: saved, added };
+}
+
+async function unprotectTab(tab, id) {
+  const list = await getProtected();
+  const next = id
+    ? removeProtected(list, id)
+    : removeProtected(list, tab?.url || "");
+  await setProtected(next);
+  return next;
+}
+
 async function runCloseSweep() {
   const all = await getAll();
   const tabs = await chrome.tabs.query({});
@@ -250,6 +357,7 @@ async function runCloseSweep() {
     activity,
     settings: all.settings,
     whitelist: all.whitelist,
+    protected: all.protected,
   });
 
   if (candidates.length === 0) {
@@ -286,6 +394,7 @@ async function refreshBadge() {
     activity: all.activity,
     settings: all.settings,
     whitelist: all.whitelist,
+    protected: all.protected,
   });
 
   const text = candidates.length > 0 ? String(Math.min(candidates.length, 99)) : "";
@@ -293,5 +402,5 @@ async function refreshBadge() {
   await chrome.action.setBadgeBackgroundColor({ color: "#d97706" });
 }
 
-// Keep SW alive-ish on first load
 ensureAlarm();
+setupContextMenus();

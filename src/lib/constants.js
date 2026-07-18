@@ -7,7 +7,11 @@ export const STORAGE_KEYS = {
   archive: "archive",
   stats: "stats",
   whitelist: "whitelist",
+  protected: "protected",
 };
+
+/** Keys mirrored to chrome.storage.sync for reinstall / multi-device recovery */
+export const SYNC_MIRROR_KEYS = ["settings", "whitelist", "protected"];
 
 export const DEFAULT_SETTINGS = {
   enabled: false,
@@ -20,6 +24,7 @@ export const DEFAULT_SETTINGS = {
   minTabs: 3,
   archiveCap: 500,
   showPageButton: false,
+  autoSync: true,
 };
 
 export const UNIT_MS = {

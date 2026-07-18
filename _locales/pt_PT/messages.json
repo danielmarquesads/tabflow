@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Fecha separadores inativos, mantém os importantes abertos e restaura de um arquivo local. Grátis e open source."
+  },
+  "brandTagline": {
+    "message": "Local · código aberto"
+  },
+  "statusOff": {
+    "message": "Desligado"
+  },
+  "statusLive": {
+    "message": "Ativo"
+  },
+  "statusPaused": {
+    "message": "Em pausa"
+  },
+  "autoClose": {
+    "message": "Fechar automaticamente"
+  },
+  "autoCloseHint": {
+    "message": "Defina um limite para ativar"
+  },
+  "paused": {
+    "message": "Em pausa"
+  },
+  "pausedHint": {
+    "message": "Mantém as definições, deixa de fechar"
+  },
+  "thresholdLabel": {
+    "message": "Limite de inatividade"
+  },
+  "unitMinutes": {
+    "message": "minutos"
+  },
+  "unitHours": {
+    "message": "horas"
+  },
+  "unitDays": {
+    "message": "dias"
+  },
+  "unitMonths": {
+    "message": "meses"
+  },
+  "save": {
+    "message": "Guardar"
+  },
+  "closedToday": {
+    "message": "Fechados hoje"
+  },
+  "openTabs": {
+    "message": "Separadores abertos"
+  },
+  "wouldCloseNow": {
+    "message": "Fechariam agora"
+  },
+  "refresh": {
+    "message": "Atualizar"
+  },
+  "closeEligible": {
+    "message": "Fechar elegíveis agora"
+  },
+  "archive": {
+    "message": "Arquivo"
+  },
+  "settings": {
+    "message": "Definições"
+  },
+  "keepTabOpen": {
+    "message": "Manter este separador aberto"
+  },
+  "keepTabOpenHint": {
+    "message": "O TabFlow nunca o fecha automaticamente"
+  },
+  "removeKeep": {
+    "message": "Remover proteção"
+  },
+  "tabProtected": {
+    "message": "Este separador está protegido"
+  },
+  "tabProtectedToast": {
+    "message": "Separador guardado — nunca fecha sozinho"
+  },
+  "tabUnprotectedToast": {
+    "message": "Proteção removida"
+  },
+  "needThreshold": {
+    "message": "Defina e guarde um limite primeiro"
+  },
+  "thresholdSaved": {
+    "message": "Limite guardado · auto-fechar ligado"
+  },
+  "closedN": {
+    "message": "Fechou $1 separador(es)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Nada elegível"
+  },
+  "noEligible": {
+    "message": "Nenhum separador elegível"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "inativo"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Manter aberto"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Remover proteção"
+  },
+  "optionsTitle": {
+    "message": "Definições TabFlow"
+  },
+  "navGeneral": {
+    "message": "Geral"
+  },
+  "navWhitelist": {
+    "message": "Lista branca"
+  },
+  "navKept": {
+    "message": "Separadores guardados"
+  },
+  "navArchive": {
+    "message": "Arquivo"
+  },
+  "navData": {
+    "message": "Dados"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "Ativar auto-fechar"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Guardar geral"
+  },
+  "protectPinned": {
+    "message": "Proteger afixados"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Proteger com áudio"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Sincronizar definições"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Adicionar regra"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Remover"
+  },
+  "keptTitle": {
+    "message": "Separadores guardados"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "Ainda nenhum. Use o botão no popup."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Restaurar"
+  },
+  "delete": {
+    "message": "Eliminar"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Exportar cópia"
+  },
+  "importBackup": {
+    "message": "Importar cópia"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Sincronizar agora"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Definições guardadas"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

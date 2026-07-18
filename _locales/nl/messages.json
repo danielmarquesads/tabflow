@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Sluit inactieve tabbladen automatisch, houd belangrijke open en herstel uit een lokaal archief. Gratis en open source."
+  },
+  "brandTagline": {
+    "message": "Lokaal · open source"
+  },
+  "statusOff": {
+    "message": "Uit"
+  },
+  "statusLive": {
+    "message": "Actief"
+  },
+  "statusPaused": {
+    "message": "Gepauzeerd"
+  },
+  "autoClose": {
+    "message": "Automatisch sluiten"
+  },
+  "autoCloseHint": {
+    "message": "Stel een drempel in om te activeren"
+  },
+  "paused": {
+    "message": "Gepauzeerd"
+  },
+  "pausedHint": {
+    "message": "Instellingen bewaren, stoppen met sluiten"
+  },
+  "thresholdLabel": {
+    "message": "Inactiviteitsdrempel"
+  },
+  "unitMinutes": {
+    "message": "minuten"
+  },
+  "unitHours": {
+    "message": "uren"
+  },
+  "unitDays": {
+    "message": "dagen"
+  },
+  "unitMonths": {
+    "message": "maanden"
+  },
+  "save": {
+    "message": "Opslaan"
+  },
+  "closedToday": {
+    "message": "Vandaag gesloten"
+  },
+  "openTabs": {
+    "message": "Open tabbladen"
+  },
+  "wouldCloseNow": {
+    "message": "Zou nu sluiten"
+  },
+  "refresh": {
+    "message": "Vernieuwen"
+  },
+  "closeEligible": {
+    "message": "Geschikte nu sluiten"
+  },
+  "archive": {
+    "message": "Archief"
+  },
+  "settings": {
+    "message": "Instellingen"
+  },
+  "keepTabOpen": {
+    "message": "Dit tabblad open houden"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow sluit het nooit automatisch"
+  },
+  "removeKeep": {
+    "message": "Bescherming verwijderen"
+  },
+  "tabProtected": {
+    "message": "Dit tabblad is beschermd"
+  },
+  "tabProtectedToast": {
+    "message": "Tabblad opgeslagen — geen auto-sluiten"
+  },
+  "tabUnprotectedToast": {
+    "message": "Bescherming verwijderd"
+  },
+  "needThreshold": {
+    "message": "Sla eerst een drempel op"
+  },
+  "thresholdSaved": {
+    "message": "Drempel opgeslagen · auto-sluiten aan"
+  },
+  "closedN": {
+    "message": "$1 tabblad(en) gesloten",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Niets geschikt"
+  },
+  "noEligible": {
+    "message": "Geen geschikte tabbladen"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "inactief"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Tab open houden"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Bescherming verwijderen"
+  },
+  "optionsTitle": {
+    "message": "TabFlow-instellingen"
+  },
+  "navGeneral": {
+    "message": "Algemeen"
+  },
+  "navWhitelist": {
+    "message": "Whitelist"
+  },
+  "navKept": {
+    "message": "Bewaarde tabs"
+  },
+  "navArchive": {
+    "message": "Archief"
+  },
+  "navData": {
+    "message": "Gegevens"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "Auto-sluiten inschakelen"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Algemeen opslaan"
+  },
+  "protectPinned": {
+    "message": "Vastgemaakte beschermen"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Audio beschermen"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Instellingen synchroniseren"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Regel toevoegen"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Verwijderen"
+  },
+  "keptTitle": {
+    "message": "Bewaarde tabs"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "Nog geen. Gebruik de knop in de popup."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Herstellen"
+  },
+  "delete": {
+    "message": "Verwijderen"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Back-up exporteren"
+  },
+  "importBackup": {
+    "message": "Back-up importeren"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Nu synchroniseren"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Instellingen opgeslagen"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

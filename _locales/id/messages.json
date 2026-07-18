@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Tutup tab tidak aktif otomatis, jaga yang penting tetap terbuka, pulihkan dari arsip lokal. Gratis dan open source."
+  },
+  "brandTagline": {
+    "message": "Lokal · open source"
+  },
+  "statusOff": {
+    "message": "Mati"
+  },
+  "statusLive": {
+    "message": "Aktif"
+  },
+  "statusPaused": {
+    "message": "Jeda"
+  },
+  "autoClose": {
+    "message": "Tutup otomatis"
+  },
+  "autoCloseHint": {
+    "message": "Atur ambang untuk mengaktifkan"
+  },
+  "paused": {
+    "message": "Jeda"
+  },
+  "pausedHint": {
+    "message": "Simpan pengaturan, hentikan penutupan"
+  },
+  "thresholdLabel": {
+    "message": "Ambang tidak aktif"
+  },
+  "unitMinutes": {
+    "message": "menit"
+  },
+  "unitHours": {
+    "message": "jam"
+  },
+  "unitDays": {
+    "message": "hari"
+  },
+  "unitMonths": {
+    "message": "bulan"
+  },
+  "save": {
+    "message": "Simpan"
+  },
+  "closedToday": {
+    "message": "Ditutup hari ini"
+  },
+  "openTabs": {
+    "message": "Tab terbuka"
+  },
+  "wouldCloseNow": {
+    "message": "Akan ditutup sekarang"
+  },
+  "refresh": {
+    "message": "Muat ulang"
+  },
+  "closeEligible": {
+    "message": "Tutup yang memenuhi syarat"
+  },
+  "archive": {
+    "message": "Arsip"
+  },
+  "settings": {
+    "message": "Pengaturan"
+  },
+  "keepTabOpen": {
+    "message": "Biarkan tab ini terbuka"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow tidak akan menutupnya otomatis"
+  },
+  "removeKeep": {
+    "message": "Hapus perlindungan"
+  },
+  "tabProtected": {
+    "message": "Tab ini dilindungi"
+  },
+  "tabProtectedToast": {
+    "message": "Tab disimpan — tidak auto-tutup"
+  },
+  "tabUnprotectedToast": {
+    "message": "Perlindungan dihapus"
+  },
+  "needThreshold": {
+    "message": "Simpan ambang dulu"
+  },
+  "thresholdSaved": {
+    "message": "Ambang disimpan · auto-tutup aktif"
+  },
+  "closedN": {
+    "message": "Menutup $1 tab",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Tidak ada yang memenuhi"
+  },
+  "noEligible": {
+    "message": "Tidak ada tab yang memenuhi"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "idle"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Biarkan tab terbuka"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Hapus perlindungan"
+  },
+  "optionsTitle": {
+    "message": "Pengaturan TabFlow"
+  },
+  "navGeneral": {
+    "message": "Umum"
+  },
+  "navWhitelist": {
+    "message": "Whitelist"
+  },
+  "navKept": {
+    "message": "Tab disimpan"
+  },
+  "navArchive": {
+    "message": "Arsip"
+  },
+  "navData": {
+    "message": "Data"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "Aktifkan tutup otomatis"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Simpan umum"
+  },
+  "protectPinned": {
+    "message": "Lindungi tab disematkan"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Lindungi tab audio"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Sinkronkan pengaturan"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Tambah aturan"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Hapus"
+  },
+  "keptTitle": {
+    "message": "Tab disimpan"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "Belum ada. Gunakan tombol di popup."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Pulihkan"
+  },
+  "delete": {
+    "message": "Hapus"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Ekspor cadangan"
+  },
+  "importBackup": {
+    "message": "Impor cadangan"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Sinkron sekarang"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Pengaturan disimpan"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

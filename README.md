@@ -22,18 +22,29 @@ TabFlow is a Chrome MV3 extension for tab overload: set an inactivity threshold,
 | Export / import | JSON backup (survives uninstall) |
 | No account · no cloud | `chrome.storage.local` only |
 
+## Keep a tab open forever
+
+In the popup, click **Keep this tab open**. TabFlow will never auto-close that URL. Manage the list under **Settings → Kept tabs**. You can also right-click a page → **TabFlow: Keep this tab open**.
+
 ## Data persistence (important)
 
-| Scenario | Settings / archive kept? |
-|----------|---------------------------|
-| Close Chrome and reopen | **Yes** |
-| Restart PC | **Yes** |
-| Disable extension temporarily | **Yes** |
-| Update extension (same install) | **Yes** |
-| **Remove / uninstall extension** | **No** — Chrome wipes `chrome.storage.local` |
-| Reinstall after uninstall | **Empty** unless you **Import** a backup |
+| Data | Local storage | Chrome Sync (optional) | Survives uninstall? |
+|------|---------------|------------------------|---------------------|
+| Settings | Yes (auto) | Yes if **Auto-sync** on | **Yes** via Sync when signed into Chrome |
+| Kept tabs | Yes (auto) | Yes if Auto-sync on | **Yes** via Sync |
+| Whitelist | Yes (auto) | Yes if Auto-sync on | **Yes** via Sync |
+| Close archive | Yes (auto) | No (size) | **No** — use **Export backup** |
+| Activity timers | Ephemeral | No | No |
 
-TabFlow does **not** sync to the cloud. History is local to this browser profile. Use **Settings → Data → Export backup** before uninstalling if you care about the archive.
+| Scenario | What happens |
+|----------|----------------|
+| Close Chrome / restart PC | Everything local is kept |
+| Disable extension | Kept |
+| Update extension | Kept |
+| Uninstall + reinstall (Chrome Sync on + signed in) | Settings, kept tabs, whitelist can restore automatically |
+| Uninstall without Sync | Local wipe — re-import a JSON backup for full restore |
+
+Every change is **saved automatically** to `chrome.storage.local`. With **Auto-sync** enabled (default), durable config is also mirrored to `chrome.storage.sync`.
 
 ## Install (developer / unpacked)
 

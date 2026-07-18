@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "Etkin olmayan sekmeleri otomatik kapatır, önemlileri açık tutar, yerel arşivden geri yükler. Ücretsiz ve açık kaynak."
+  },
+  "brandTagline": {
+    "message": "Yerel · açık kaynak"
+  },
+  "statusOff": {
+    "message": "Kapalı"
+  },
+  "statusLive": {
+    "message": "Aktif"
+  },
+  "statusPaused": {
+    "message": "Duraklatıldı"
+  },
+  "autoClose": {
+    "message": "Otomatik kapat"
+  },
+  "autoCloseHint": {
+    "message": "Etkinleştirmek için eşik ayarlayın"
+  },
+  "paused": {
+    "message": "Duraklatıldı"
+  },
+  "pausedHint": {
+    "message": "Ayarları koru, kapatmayı durdur"
+  },
+  "thresholdLabel": {
+    "message": "Hareketsizlik eşiği"
+  },
+  "unitMinutes": {
+    "message": "dakika"
+  },
+  "unitHours": {
+    "message": "saat"
+  },
+  "unitDays": {
+    "message": "gün"
+  },
+  "unitMonths": {
+    "message": "ay"
+  },
+  "save": {
+    "message": "Kaydet"
+  },
+  "closedToday": {
+    "message": "Bugün kapatılan"
+  },
+  "openTabs": {
+    "message": "Açık sekmeler"
+  },
+  "wouldCloseNow": {
+    "message": "Şimdi kapanacaklar"
+  },
+  "refresh": {
+    "message": "Yenile"
+  },
+  "closeEligible": {
+    "message": "Uygun olanları kapat"
+  },
+  "archive": {
+    "message": "Arşiv"
+  },
+  "settings": {
+    "message": "Ayarlar"
+  },
+  "keepTabOpen": {
+    "message": "Bu sekmeyi açık tut"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow asla otomatik kapatmaz"
+  },
+  "removeKeep": {
+    "message": "Korumayı kaldır"
+  },
+  "tabProtected": {
+    "message": "Bu sekme korunuyor"
+  },
+  "tabProtectedToast": {
+    "message": "Sekme kaydedildi — otomatik kapanmaz"
+  },
+  "tabUnprotectedToast": {
+    "message": "Koruma kaldırıldı"
+  },
+  "needThreshold": {
+    "message": "Önce eşiği kaydedin"
+  },
+  "thresholdSaved": {
+    "message": "Eşik kaydedildi · otomatik kapat açık"
+  },
+  "closedN": {
+    "message": "$1 sekme kapatıldı",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "Uygun yok"
+  },
+  "noEligible": {
+    "message": "Uygun sekme yok"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "boşta"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: Sekmeyi açık tut"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: Korumayı kaldır"
+  },
+  "optionsTitle": {
+    "message": "TabFlow Ayarları"
+  },
+  "navGeneral": {
+    "message": "Genel"
+  },
+  "navWhitelist": {
+    "message": "Beyaz liste"
+  },
+  "navKept": {
+    "message": "Korunan sekmeler"
+  },
+  "navArchive": {
+    "message": "Arşiv"
+  },
+  "navData": {
+    "message": "Veri"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "Otomatik kapatmayı aç"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "Geneli kaydet"
+  },
+  "protectPinned": {
+    "message": "Sabitlenenleri koru"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "Sesli sekmeleri koru"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "Ayarları senkronize et"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "Kural ekle"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "Kaldır"
+  },
+  "keptTitle": {
+    "message": "Korunan sekmeler"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "Henüz yok. Popup düğmesini kullanın."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "Geri yükle"
+  },
+  "delete": {
+    "message": "Sil"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "Yedek dışa aktar"
+  },
+  "importBackup": {
+    "message": "Yedek içe aktar"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "Şimdi senkronize et"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "Ayarlar kaydedildi"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

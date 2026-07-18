@@ -1,4 +1,5 @@
 import { isWhitelisted } from "./whitelist.js";
+import { isProtectedUrl } from "./protected.js";
 import { makeArchiveEntry, pushArchive } from "./archive.js";
 import { todayKey } from "./constants.js";
 
@@ -20,7 +21,14 @@ export function isCloseableUrl(url) {
 /**
  * Build list of tabs that would be closed under current policy.
  */
-export function evaluateCandidates({ tabs, activity, settings, whitelist, now = Date.now() }) {
+export function evaluateCandidates({
+  tabs,
+  activity,
+  settings,
+  whitelist,
+  protected: protectedList = [],
+  now = Date.now(),
+}) {
   if (!settings.enabled || settings.paused) return [];
   if (!settings.thresholdMs || settings.thresholdMs <= 0) return [];
 
@@ -32,7 +40,7 @@ export function evaluateCandidates({ tabs, activity, settings, whitelist, now = 
     const closable = [];
 
     for (const tab of windowTabs) {
-      if (!isEligibleTab(tab, settings, whitelist, activity, now)) continue;
+      if (!isEligibleTab(tab, settings, whitelist, protectedList, activity, now)) continue;
       closable.push(tab);
     }
 
@@ -54,12 +62,13 @@ export function evaluateCandidates({ tabs, activity, settings, whitelist, now = 
   return candidates;
 }
 
-function isEligibleTab(tab, settings, whitelist, activity, now) {
+function isEligibleTab(tab, settings, whitelist, protectedList, activity, now) {
   if (tab.active) return false;
   if (tab.pinned && settings.protectPinned) return false;
   if (tab.audible && settings.protectAudio) return false;
   if (!isCloseableUrl(tab.url)) return false;
   if (isWhitelisted(tab.url, whitelist)) return false;
+  if (isProtectedUrl(tab.url, protectedList)) return false;
 
   const last = lastActive(tab, activity);
   return now - last >= settings.thresholdMs;

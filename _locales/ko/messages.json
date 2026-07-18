@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "비활성 탭을 자동으로 닫고, 중요한 탭은 항상 열어 두며, 로컬 보관함에서 복원합니다. 무료 오픈소스."
+  },
+  "brandTagline": {
+    "message": "로컬 · 오픈소스"
+  },
+  "statusOff": {
+    "message": "꺼짐"
+  },
+  "statusLive": {
+    "message": "작동 중"
+  },
+  "statusPaused": {
+    "message": "일시정지"
+  },
+  "autoClose": {
+    "message": "자동 닫기"
+  },
+  "autoCloseHint": {
+    "message": "활성화하려면 기준 시간을 설정하세요"
+  },
+  "paused": {
+    "message": "일시정지"
+  },
+  "pausedHint": {
+    "message": "설정 유지, 닫기 중지"
+  },
+  "thresholdLabel": {
+    "message": "비활성 기준 시간"
+  },
+  "unitMinutes": {
+    "message": "분"
+  },
+  "unitHours": {
+    "message": "시간"
+  },
+  "unitDays": {
+    "message": "일"
+  },
+  "unitMonths": {
+    "message": "개월"
+  },
+  "save": {
+    "message": "저장"
+  },
+  "closedToday": {
+    "message": "오늘 닫힘"
+  },
+  "openTabs": {
+    "message": "열린 탭"
+  },
+  "wouldCloseNow": {
+    "message": "지금 닫힐 탭"
+  },
+  "refresh": {
+    "message": "새로고침"
+  },
+  "closeEligible": {
+    "message": "대상 지금 닫기"
+  },
+  "archive": {
+    "message": "보관함"
+  },
+  "settings": {
+    "message": "설정"
+  },
+  "keepTabOpen": {
+    "message": "이 탭 열어 두기"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlow가 자동으로 닫지 않습니다"
+  },
+  "removeKeep": {
+    "message": "보호 해제"
+  },
+  "tabProtected": {
+    "message": "이 탭은 보호 중입니다"
+  },
+  "tabProtectedToast": {
+    "message": "탭 저장됨 — 자동으로 닫히지 않음"
+  },
+  "tabUnprotectedToast": {
+    "message": "보호 해제됨"
+  },
+  "needThreshold": {
+    "message": "먼저 기준 시간을 저장하세요"
+  },
+  "thresholdSaved": {
+    "message": "기준 저장 · 자동 닫기 켜짐"
+  },
+  "closedN": {
+    "message": "탭 $1개 닫음",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "대상 없음"
+  },
+  "noEligible": {
+    "message": "닫을 탭 없음"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "유휴"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: 탭 열어 두기"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: 보호 해제"
+  },
+  "optionsTitle": {
+    "message": "TabFlow 설정"
+  },
+  "navGeneral": {
+    "message": "일반"
+  },
+  "navWhitelist": {
+    "message": "화이트리스트"
+  },
+  "navKept": {
+    "message": "보호된 탭"
+  },
+  "navArchive": {
+    "message": "보관함"
+  },
+  "navData": {
+    "message": "데이터"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "자동 닫기 사용"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "일반 저장"
+  },
+  "protectPinned": {
+    "message": "고정 탭 보호"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "오디오 탭 보호"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "설정 자동 동기화"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "규칙 추가"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "제거"
+  },
+  "keptTitle": {
+    "message": "보호된 탭"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "아직 없습니다. 팝업의 버튼을 사용하세요."
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "복원"
+  },
+  "delete": {
+    "message": "삭제"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "백업 내보내기"
+  },
+  "importBackup": {
+    "message": "백업 가져오기"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "지금 동기화"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "설정 저장됨"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}

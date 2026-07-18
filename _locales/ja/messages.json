@@ -1,0 +1,313 @@
+{
+  "extName": {
+    "message": "TabFlow"
+  },
+  "extDescription": {
+    "message": "非アクティブなタブを自動で閉じ、重要なタブは常に開き、ローカルアーカイブから復元。無料・オープンソース。"
+  },
+  "brandTagline": {
+    "message": "ローカル · オープンソース"
+  },
+  "statusOff": {
+    "message": "オフ"
+  },
+  "statusLive": {
+    "message": "稼働中"
+  },
+  "statusPaused": {
+    "message": "一時停止"
+  },
+  "autoClose": {
+    "message": "自動クローズ"
+  },
+  "autoCloseHint": {
+    "message": "有効にするにはしきい値を設定"
+  },
+  "paused": {
+    "message": "一時停止"
+  },
+  "pausedHint": {
+    "message": "設定を保持したまま閉じない"
+  },
+  "thresholdLabel": {
+    "message": "非アクティブ時間"
+  },
+  "unitMinutes": {
+    "message": "分"
+  },
+  "unitHours": {
+    "message": "時間"
+  },
+  "unitDays": {
+    "message": "日"
+  },
+  "unitMonths": {
+    "message": "月"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "closedToday": {
+    "message": "今日閉じた数"
+  },
+  "openTabs": {
+    "message": "開いているタブ"
+  },
+  "wouldCloseNow": {
+    "message": "今閉じる候補"
+  },
+  "refresh": {
+    "message": "更新"
+  },
+  "closeEligible": {
+    "message": "候補を今すぐ閉じる"
+  },
+  "archive": {
+    "message": "アーカイブ"
+  },
+  "settings": {
+    "message": "設定"
+  },
+  "keepTabOpen": {
+    "message": "このタブを開いたままにする"
+  },
+  "keepTabOpenHint": {
+    "message": "TabFlowは自動では閉じません"
+  },
+  "removeKeep": {
+    "message": "保護を解除"
+  },
+  "tabProtected": {
+    "message": "このタブは保護されています"
+  },
+  "tabProtectedToast": {
+    "message": "タブを保存 — 自動では閉じません"
+  },
+  "tabUnprotectedToast": {
+    "message": "保護を解除しました"
+  },
+  "needThreshold": {
+    "message": "先にしきい値を保存してください"
+  },
+  "thresholdSaved": {
+    "message": "しきい値を保存 · 自動クローズON"
+  },
+  "closedN": {
+    "message": "$1 個のタブを閉じました",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "nothingEligible": {
+    "message": "対象なし"
+  },
+  "noEligible": {
+    "message": "閉じる候補はありません"
+  },
+  "previewFail": {
+    "message": "Could not load preview"
+  },
+  "idleSuffix": {
+    "message": "アイドル"
+  },
+  "contextKeepTab": {
+    "message": "TabFlow: タブを保護"
+  },
+  "contextUnkeepTab": {
+    "message": "TabFlow: 保護を解除"
+  },
+  "optionsTitle": {
+    "message": "TabFlow 設定"
+  },
+  "navGeneral": {
+    "message": "一般"
+  },
+  "navWhitelist": {
+    "message": "ホワイトリスト"
+  },
+  "navKept": {
+    "message": "保護タブ"
+  },
+  "navArchive": {
+    "message": "アーカイブ"
+  },
+  "navData": {
+    "message": "データ"
+  },
+  "sideNote": {
+    "message": "Settings and kept tabs auto-sync with your Chrome account when enabled."
+  },
+  "generalTitle": {
+    "message": "General"
+  },
+  "generalDesc": {
+    "message": "Control when idle tabs close and what stays protected."
+  },
+  "enableAutoClose": {
+    "message": "自動クローズを有効化"
+  },
+  "enableHint": {
+    "message": "Nothing closes until threshold is set"
+  },
+  "researchMode": {
+    "message": "Research mode without losing config"
+  },
+  "saveGeneral": {
+    "message": "一般を保存"
+  },
+  "protectPinned": {
+    "message": "固定タブを保護"
+  },
+  "protectPinnedHint": {
+    "message": "Pinned stays open"
+  },
+  "protectAudio": {
+    "message": "音声タブを保護"
+  },
+  "protectAudioHint": {
+    "message": "Music, calls, video"
+  },
+  "minTabs": {
+    "message": "Minimum tabs per window"
+  },
+  "archiveCap": {
+    "message": "Archive size cap"
+  },
+  "pageButton": {
+    "message": "On-page archive button"
+  },
+  "pageButtonHint": {
+    "message": "FAB on websites"
+  },
+  "autoSync": {
+    "message": "設定を同期"
+  },
+  "autoSyncHint": {
+    "message": "Chrome Sync restores config after reinstall"
+  },
+  "closedTotal": {
+    "message": "Closed total"
+  },
+  "inArchive": {
+    "message": "In archive"
+  },
+  "dryRun": {
+    "message": "Dry-run preview"
+  },
+  "whitelistTitle": {
+    "message": "Whitelist"
+  },
+  "whitelistDesc": {
+    "message": "Protect URLs and domains from auto-close."
+  },
+  "pattern": {
+    "message": "Pattern"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "modeSubdomain": {
+    "message": "Subdomain (domain + subdomains)"
+  },
+  "modeExact": {
+    "message": "Exact URL path"
+  },
+  "modeWildcard": {
+    "message": "Wildcard (* patterns)"
+  },
+  "addRule": {
+    "message": "ルールを追加"
+  },
+  "noWhitelist": {
+    "message": "No whitelist rules yet"
+  },
+  "ruleAdded": {
+    "message": "Rule added"
+  },
+  "remove": {
+    "message": "削除"
+  },
+  "keptTitle": {
+    "message": "保護タブ"
+  },
+  "keptDesc": {
+    "message": "Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled."
+  },
+  "noKept": {
+    "message": "まだありません。ポップアップのボタンを使ってください。"
+  },
+  "matchUrl": {
+    "message": "Exact URL"
+  },
+  "matchOrigin": {
+    "message": "Whole site"
+  },
+  "archiveTitle": {
+    "message": "Archive"
+  },
+  "archiveDesc": {
+    "message": "Search and restore tabs closed by TabFlow. Local only."
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchPlaceholder": {
+    "message": "Title or URL"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "archiveEmpty": {
+    "message": "Archive empty"
+  },
+  "restore": {
+    "message": "復元"
+  },
+  "delete": {
+    "message": "削除"
+  },
+  "restored": {
+    "message": "Restored"
+  },
+  "archiveCleared": {
+    "message": "Archive cleared"
+  },
+  "dataTitle": {
+    "message": "Data"
+  },
+  "dataDesc": {
+    "message": "Export or import settings, kept tabs, whitelist, and archive as JSON."
+  },
+  "exportBackup": {
+    "message": "バックアップを書き出し"
+  },
+  "importBackup": {
+    "message": "バックアップを読み込み"
+  },
+  "exportDone": {
+    "message": "Export downloaded"
+  },
+  "importDone": {
+    "message": "Import complete"
+  },
+  "syncNow": {
+    "message": "今すぐ同期"
+  },
+  "syncDone": {
+    "message": "Synced to Chrome"
+  },
+  "settingsSaved": {
+    "message": "設定を保存しました"
+  },
+  "clearArchiveConfirm": {
+    "message": "Clear the entire local archive?"
+  },
+  "dataNote": {
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+  },
+  "patternPlaceholder": {
+    "message": "notion.so or *.google.com"
+  }
+}
