@@ -4,3 +4,8 @@ node_modules/
 *.log
 .idea/
 .vscode/
+.claude/
+.codex/
+.cursor/
+.agents/
+*.local.json
