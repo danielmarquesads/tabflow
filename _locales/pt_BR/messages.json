@@ -309,5 +309,137 @@
   },
   "patternPlaceholder": {
     "message": "notion.so ou *.google.com"
+  },
+  "profile": {
+    "message": "Perfil"
+  },
+  "snooze1h": {
+    "message": "Adiar 1h"
+  },
+  "snoozedToast": {
+    "message": "Adiado — fecha agora e reabre em 1 hora"
+  },
+  "contextSnooze1h": {
+    "message": "TabFlow: Adiar 1 hora (fechar e reabrir)"
+  },
+  "graceTitle": {
+    "message": "Fechando em breve"
+  },
+  "graceHint": {
+    "message": "Período de graça"
+  },
+  "graceWarned": {
+    "message": "$1 em graça",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "graceEnabled": {
+    "message": "Período de graça"
+  },
+  "graceEnabledHint": {
+    "message": "Avisar antes de fechar"
+  },
+  "graceSeconds": {
+    "message": "Segundos de graça"
+  },
+  "closedWeek": {
+    "message": "Esta semana"
+  },
+  "estMb": {
+    "message": "~MB economizados"
+  },
+  "estMbPerTab": {
+    "message": "MB estimados por aba"
+  },
+  "simulate1h": {
+    "message": "Simular +1h"
+  },
+  "simulateLabel": {
+    "message": "Se continuar ocioso por 1 hora"
+  },
+  "navProfiles": {
+    "message": "Perfis"
+  },
+  "navDomains": {
+    "message": "Regras por site"
+  },
+  "navImport": {
+    "message": "Importar URLs"
+  },
+  "profilesDesc": {
+    "message": "Troque modos: Deep work, Pesquisa, Equilibrado. Agenda opcional por hora."
+  },
+  "scheduleEnabled": {
+    "message": "Agenda por hora"
+  },
+  "scheduleHint": {
+    "message": "Mapeie horas 0–23 para um perfil (JSON)"
+  },
+  "scheduleJson": {
+    "message": "JSON da agenda"
+  },
+  "domainsDesc": {
+    "message": "Limites de ociosidade por site (ex.: YouTube 20 min, GitHub 8 h)."
+  },
+  "importDesc": {
+    "message": "Cole linhas estilo OneTab ou URLs simples (uma por linha)."
+  },
+  "importPaste": {
+    "message": "Colar URLs"
+  },
+  "importOpen": {
+    "message": "Abrir como abas"
+  },
+  "importArchive": {
+    "message": "Adicionar ao arquivo"
+  },
+  "importedN": {
+    "message": "Importou $1 URL(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "viewFlat": {
+    "message": "Lista"
+  },
+  "viewGroups": {
+    "message": "Por domínio"
+  },
+  "reopenSession": {
+    "message": "Reabrir sessão"
+  },
+  "reopenedN": {
+    "message": "Abriu $1 aba(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "shortcutsTitle": {
+    "message": "Atalhos de teclado"
+  },
+  "shortcutsHint": {
+    "message": "Alt+Shift+P pausar · Alt+Shift+K manter · Alt+Shift+S adiar · Alt+Shift+A arquivo. Customize em chrome://extensions/shortcuts"
+  },
+  "cmdTogglePause": {
+    "message": "TabFlow: Alternar pausa"
+  },
+  "cmdKeepTab": {
+    "message": "TabFlow: Manter aba atual"
+  },
+  "cmdSnoozeTab": {
+    "message": "TabFlow: Adiar aba 1 hora"
+  },
+  "cmdOpenArchive": {
+    "message": "TabFlow: Abrir arquivo"
+  },
+  "cmdOpenOptions": {
+    "message": "TabFlow: Abrir configurações"
   }
 }

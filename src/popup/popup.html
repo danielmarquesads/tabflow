@@ -27,79 +27,85 @@
       </header>
 
       <section class="panel stack keep-panel">
-        <div class="row between">
-          <div>
-            <div class="label-strong" id="keepLabel" data-i18n="keepTabOpen">Keep this tab open</div>
-            <p class="muted tiny" id="keepHint" data-i18n="keepTabOpenHint">
-              TabFlow will never auto-close it
-            </p>
-          </div>
+        <div class="label-strong" id="keepLabel" data-i18n="keepTabOpen">Keep this tab open</div>
+        <p class="muted tiny" id="keepHint" data-i18n="keepTabOpenHint">Never auto-close</p>
+        <div class="row gap">
+          <button type="button" class="btn btn-keep grow" id="keepBtn" data-i18n="keepTabOpen">Keep open</button>
+          <button type="button" class="btn btn-sm" id="snoozeBtn" data-i18n="snooze1h" title="Snooze 1h">Snooze 1h</button>
         </div>
-        <button type="button" class="btn btn-block btn-keep" id="keepBtn" data-i18n="keepTabOpen">
-          Keep this tab open
-        </button>
       </section>
 
       <section class="panel stack">
         <div class="row between">
+          <label class="label-strong" for="profileSelect" data-i18n="profile">Profile</label>
+          <select id="profileSelect" class="select-inline"></select>
+        </div>
+        <div class="row between">
           <div>
             <div class="label-strong" data-i18n="autoClose">Auto-close</div>
-            <p class="muted tiny" id="statusHint" data-i18n="autoCloseHint">Set a threshold to enable</p>
+            <p class="muted tiny" id="statusHint" data-i18n="autoCloseHint">Set a threshold</p>
           </div>
-          <label class="toggle" data-i18n-title="autoClose">
+          <label class="toggle">
             <input type="checkbox" id="enabledToggle" />
             <span></span>
           </label>
         </div>
-
         <div class="row between">
           <div>
             <div class="label-strong" data-i18n="paused">Paused</div>
-            <p class="muted tiny" data-i18n="pausedHint">Keep settings, stop closing</p>
+            <p class="muted tiny" data-i18n="pausedHint">Stop closing</p>
           </div>
-          <label class="toggle" data-i18n-title="paused">
+          <label class="toggle">
             <input type="checkbox" id="pausedToggle" />
             <span></span>
           </label>
         </div>
-
-        <div class="threshold">
-          <label class="sr-only" for="thresholdValue" data-i18n="thresholdLabel">Inactivity threshold</label>
-          <div class="threshold-grid">
-            <input type="number" id="thresholdValue" min="1" step="1" value="1" />
-            <select id="thresholdUnit" data-i18n-aria="thresholdLabel">
-              <option value="minutes" data-i18n="unitMinutes">minutes</option>
-              <option value="hours" selected data-i18n="unitHours">hours</option>
-              <option value="days" data-i18n="unitDays">days</option>
-              <option value="months" data-i18n="unitMonths">months</option>
-            </select>
-            <button type="button" class="btn btn-primary" id="saveThreshold" data-i18n="save">Save</button>
-          </div>
+        <div class="threshold-grid">
+          <input type="number" id="thresholdValue" min="1" step="1" value="1" />
+          <select id="thresholdUnit">
+            <option value="minutes" data-i18n="unitMinutes">minutes</option>
+            <option value="hours" selected data-i18n="unitHours">hours</option>
+            <option value="days" data-i18n="unitDays">days</option>
+            <option value="months" data-i18n="unitMonths">months</option>
+          </select>
+          <button type="button" class="btn btn-primary" id="saveThreshold" data-i18n="save">Save</button>
         </div>
       </section>
 
-      <section class="stat-grid">
+      <section class="stat-grid three">
         <div class="stat">
           <div class="value mono" id="statToday">0</div>
-          <div class="label" data-i18n="closedToday">Closed today</div>
+          <div class="label" data-i18n="closedToday">Today</div>
         </div>
         <div class="stat">
-          <div class="value mono" id="statTabs">0</div>
-          <div class="label" data-i18n="openTabs">Open tabs</div>
+          <div class="value mono" id="statWeek">0</div>
+          <div class="label" data-i18n="closedWeek">This week</div>
         </div>
+        <div class="stat">
+          <div class="value mono" id="statMb">0</div>
+          <div class="label" data-i18n="estMb">~MB saved</div>
+        </div>
+      </section>
+
+      <section class="panel stack" id="graceSection" hidden>
+        <div class="row between">
+          <h2 class="section-title" data-i18n="graceTitle">Closing soon</h2>
+          <span class="muted tiny" data-i18n="graceHint">Grace period</span>
+        </div>
+        <div id="graceList" class="list"></div>
       </section>
 
       <section class="panel stack">
         <div class="row between">
           <h2 class="section-title" data-i18n="wouldCloseNow">Would close now</h2>
-          <button type="button" class="btn btn-sm btn-ghost" id="refreshPreview" data-i18n="refresh">
-            Refresh
-          </button>
+          <div class="row gap">
+            <button type="button" class="btn btn-sm btn-ghost" id="simulateBtn" data-i18n="simulate1h">+1h</button>
+            <button type="button" class="btn btn-sm btn-ghost" id="refreshPreview" data-i18n="refresh">Refresh</button>
+          </div>
         </div>
+        <p class="muted tiny" id="previewModeLabel"></p>
         <div id="previewList" class="list" role="list"></div>
-        <button type="button" class="btn btn-block" id="runSweep" data-i18n="closeEligible">
-          Close eligible now
-        </button>
+        <button type="button" class="btn btn-block" id="runSweep" data-i18n="closeEligible">Close eligible now</button>
       </section>
 
       <footer class="foot row between">

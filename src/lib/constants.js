@@ -1,4 +1,5 @@
 export const ALARM_CLOSE = "tabflow-close-sweep";
+export const ALARM_SNOOZE = "tabflow-snooze-reopen";
 export const ALARM_PERIOD_MINUTES = 1;
 
 export const STORAGE_KEYS = {
@@ -8,10 +9,40 @@ export const STORAGE_KEYS = {
   stats: "stats",
   whitelist: "whitelist",
   protected: "protected",
+  profiles: "profiles",
+  domainRules: "domainRules",
+  snoozed: "snoozed",
+  pendingGrace: "pendingGrace",
 };
 
-/** Keys mirrored to chrome.storage.sync for reinstall / multi-device recovery */
-export const SYNC_MIRROR_KEYS = ["settings", "whitelist", "protected"];
+export const SYNC_MIRROR_KEYS = [
+  "settings",
+  "whitelist",
+  "protected",
+  "profiles",
+  "domainRules",
+];
+
+export const DEFAULT_PROFILES = [
+  {
+    id: "default",
+    name: "Balanced",
+    thresholdValue: 1,
+    thresholdUnit: "hours",
+  },
+  {
+    id: "deep",
+    name: "Deep work",
+    thresholdValue: 30,
+    thresholdUnit: "minutes",
+  },
+  {
+    id: "research",
+    name: "Research",
+    thresholdValue: 6,
+    thresholdUnit: "hours",
+  },
+];
 
 export const DEFAULT_SETTINGS = {
   enabled: false,
@@ -25,6 +56,15 @@ export const DEFAULT_SETTINGS = {
   archiveCap: 500,
   showPageButton: false,
   autoSync: true,
+  graceEnabled: true,
+  graceMs: 60 * 1000,
+  activeProfileId: "default",
+  scheduleEnabled: false,
+  /** hour 0-23 -> profileId (applied when scheduleEnabled) */
+  schedule: {
+    // 9-17 work/balanced, evening research-ish defaults empty = use active
+  },
+  estMbPerTab: 50,
 };
 
 export const UNIT_MS = {
@@ -45,4 +85,22 @@ export function thresholdToMs(value, unit) {
 
 export function todayKey(d = new Date()) {
   return d.toISOString().slice(0, 10);
+}
+
+/** ISO week key YYYY-Www */
+export function weekKey(d = new Date()) {
+  const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() + 4 - day);
+  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+  const week = Math.ceil(((date - yearStart) / 86400000 + 1) / 7);
+  return `${date.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+}
+
+export function hostnameOf(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
 }

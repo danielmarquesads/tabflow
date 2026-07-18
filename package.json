@@ -1,6 +1,6 @@
 {
   "name": "tabflow",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Auto-close inactive Chrome tabs with a local archive. Free and open source.",
   "private": true,
   "type": "module",

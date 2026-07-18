@@ -305,9 +305,141 @@
     "message": "Clear the entire local archive?"
   },
   "dataNote": {
-    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in)."
+    "message": "Import replaces matching keys. Auto-sync keeps settings, whitelist, and kept tabs recoverable after reinstall (Chrome signed in). 100% free & open source."
   },
   "patternPlaceholder": {
     "message": "notion.so or *.google.com"
+  },
+  "profile": {
+    "message": "Profile"
+  },
+  "snooze1h": {
+    "message": "Snooze 1h"
+  },
+  "snoozedToast": {
+    "message": "Snoozed — closes now, reopens in 1 hour"
+  },
+  "contextSnooze1h": {
+    "message": "TabFlow: Snooze 1 hour (close & reopen)"
+  },
+  "graceTitle": {
+    "message": "Closing soon"
+  },
+  "graceHint": {
+    "message": "Grace period"
+  },
+  "graceWarned": {
+    "message": "$1 in grace",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "graceEnabled": {
+    "message": "Grace period"
+  },
+  "graceEnabledHint": {
+    "message": "Warn before auto-close"
+  },
+  "graceSeconds": {
+    "message": "Grace seconds"
+  },
+  "closedWeek": {
+    "message": "This week"
+  },
+  "estMb": {
+    "message": "~MB saved"
+  },
+  "estMbPerTab": {
+    "message": "Est. MB per closed tab"
+  },
+  "simulate1h": {
+    "message": "Simulate +1h"
+  },
+  "simulateLabel": {
+    "message": "If idle continues for 1 hour"
+  },
+  "navProfiles": {
+    "message": "Profiles"
+  },
+  "navDomains": {
+    "message": "Domain rules"
+  },
+  "navImport": {
+    "message": "Import URLs"
+  },
+  "profilesDesc": {
+    "message": "Switch modes: Deep work, Research, Balanced. Optional hour schedule."
+  },
+  "scheduleEnabled": {
+    "message": "Hour schedule"
+  },
+  "scheduleHint": {
+    "message": "Map hours 0–23 to a profile (JSON)"
+  },
+  "scheduleJson": {
+    "message": "Schedule JSON"
+  },
+  "domainsDesc": {
+    "message": "Custom idle thresholds per site (e.g. YouTube 20 min, GitHub 8 h)."
+  },
+  "importDesc": {
+    "message": "Paste OneTab-style lines or plain URLs (one per line)."
+  },
+  "importPaste": {
+    "message": "Paste URLs"
+  },
+  "importOpen": {
+    "message": "Open as tabs"
+  },
+  "importArchive": {
+    "message": "Add to archive"
+  },
+  "importedN": {
+    "message": "Imported $1 URL(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "viewFlat": {
+    "message": "List"
+  },
+  "viewGroups": {
+    "message": "By domain"
+  },
+  "reopenSession": {
+    "message": "Reopen session"
+  },
+  "reopenedN": {
+    "message": "Opened $1 tab(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "shortcutsTitle": {
+    "message": "Keyboard shortcuts"
+  },
+  "shortcutsHint": {
+    "message": "Alt+Shift+P pause · Alt+Shift+K keep · Alt+Shift+S snooze · Alt+Shift+A archive. Customize in chrome://extensions/shortcuts"
+  },
+  "cmdTogglePause": {
+    "message": "TabFlow: Toggle pause"
+  },
+  "cmdKeepTab": {
+    "message": "TabFlow: Keep current tab open"
+  },
+  "cmdSnoozeTab": {
+    "message": "TabFlow: Snooze current tab 1 hour"
+  },
+  "cmdOpenArchive": {
+    "message": "TabFlow: Open archive"
+  },
+  "cmdOpenOptions": {
+    "message": "TabFlow: Open settings"
   }
 }

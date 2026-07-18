@@ -1,8 +1,9 @@
 import {
   DEFAULT_SETTINGS,
+  DEFAULT_PROFILES,
   STORAGE_KEYS,
-  SYNC_MIRROR_KEYS,
   todayKey,
+  weekKey,
 } from "./constants.js";
 
 let syncTimer = null;
@@ -16,6 +17,13 @@ export async function getAll() {
     stats: normalizeStats(data.stats),
     whitelist: Array.isArray(data.whitelist) ? data.whitelist : [],
     protected: Array.isArray(data.protected) ? data.protected : [],
+    profiles:
+      Array.isArray(data.profiles) && data.profiles.length
+        ? data.profiles
+        : DEFAULT_PROFILES,
+    domainRules: Array.isArray(data.domainRules) ? data.domainRules : [],
+    snoozed: Array.isArray(data.snoozed) ? data.snoozed : [],
+    pendingGrace: Array.isArray(data.pendingGrace) ? data.pendingGrace : [],
   };
 }
 
@@ -45,6 +53,10 @@ export async function touchActivity(tabId, ts = Date.now()) {
   const activity = await getActivity();
   activity[String(tabId)] = ts;
   await setActivity(activity);
+  // clear grace for this tab
+  const grace = await getPendingGrace();
+  const next = grace.filter((g) => String(g.tabId) !== String(tabId));
+  if (next.length !== grace.length) await setPendingGrace(next);
   return ts;
 }
 
@@ -52,6 +64,8 @@ export async function clearActivity(tabId) {
   const activity = await getActivity();
   delete activity[String(tabId)];
   await setActivity(activity);
+  const grace = await getPendingGrace();
+  await setPendingGrace(grace.filter((g) => String(g.tabId) !== String(tabId)));
 }
 
 export async function pruneActivity(liveTabIds) {
@@ -65,6 +79,11 @@ export async function pruneActivity(liveTabIds) {
     }
   }
   if (changed) await setActivity(activity);
+
+  const grace = await getPendingGrace();
+  const gNext = grace.filter((g) => live.has(String(g.tabId)));
+  if (gNext.length !== grace.length) await setPendingGrace(gNext);
+
   return activity;
 }
 
@@ -97,6 +116,44 @@ export async function setProtected(list) {
   scheduleSyncMirror();
 }
 
+export async function getProfiles() {
+  const { profiles } = await chrome.storage.local.get(STORAGE_KEYS.profiles);
+  return Array.isArray(profiles) && profiles.length ? profiles : DEFAULT_PROFILES;
+}
+
+export async function setProfiles(profiles) {
+  await chrome.storage.local.set({ [STORAGE_KEYS.profiles]: profiles });
+  scheduleSyncMirror();
+}
+
+export async function getDomainRules() {
+  const { domainRules } = await chrome.storage.local.get(STORAGE_KEYS.domainRules);
+  return Array.isArray(domainRules) ? domainRules : [];
+}
+
+export async function setDomainRules(domainRules) {
+  await chrome.storage.local.set({ [STORAGE_KEYS.domainRules]: domainRules });
+  scheduleSyncMirror();
+}
+
+export async function getSnoozed() {
+  const { snoozed } = await chrome.storage.local.get(STORAGE_KEYS.snoozed);
+  return Array.isArray(snoozed) ? snoozed : [];
+}
+
+export async function setSnoozed(snoozed) {
+  await chrome.storage.local.set({ [STORAGE_KEYS.snoozed]: snoozed });
+}
+
+export async function getPendingGrace() {
+  const { pendingGrace } = await chrome.storage.local.get(STORAGE_KEYS.pendingGrace);
+  return Array.isArray(pendingGrace) ? pendingGrace : [];
+}
+
+export async function setPendingGrace(pendingGrace) {
+  await chrome.storage.local.set({ [STORAGE_KEYS.pendingGrace]: pendingGrace });
+}
+
 export async function getStats() {
   const { stats } = await chrome.storage.local.get(STORAGE_KEYS.stats);
   return normalizeStats(stats);
@@ -110,34 +167,44 @@ function normalizeStats(stats) {
   const base = {
     closedTotal: 0,
     closedToday: 0,
+    closedWeek: 0,
+    estMbSaved: 0,
     todayKey: todayKey(),
+    weekKey: weekKey(),
   };
   if (!stats || typeof stats !== "object") return base;
-  const key = todayKey();
-  if (stats.todayKey !== key) {
-    return {
-      closedTotal: Number(stats.closedTotal) || 0,
-      closedToday: 0,
-      todayKey: key,
-    };
-  }
-  return {
+  const s = {
     closedTotal: Number(stats.closedTotal) || 0,
     closedToday: Number(stats.closedToday) || 0,
-    todayKey: key,
+    closedWeek: Number(stats.closedWeek) || 0,
+    estMbSaved: Number(stats.estMbSaved) || 0,
+    todayKey: stats.todayKey || todayKey(),
+    weekKey: stats.weekKey || weekKey(),
   };
+  if (s.todayKey !== todayKey()) {
+    s.closedToday = 0;
+    s.todayKey = todayKey();
+  }
+  if (s.weekKey !== weekKey()) {
+    s.closedWeek = 0;
+    s.weekKey = weekKey();
+  }
+  return s;
 }
 
 export async function exportBundle() {
   const all = await getAll();
   return {
-    version: 2,
+    version: 3,
     exportedAt: new Date().toISOString(),
     settings: all.settings,
     whitelist: all.whitelist,
     protected: all.protected,
+    profiles: all.profiles,
+    domainRules: all.domainRules,
     archive: all.archive,
     stats: all.stats,
+    snoozed: all.snoozed,
   };
 }
 
@@ -149,7 +216,10 @@ export async function importBundle(bundle) {
   if (bundle.settings) patch.settings = { ...DEFAULT_SETTINGS, ...bundle.settings };
   if (Array.isArray(bundle.whitelist)) patch.whitelist = bundle.whitelist;
   if (Array.isArray(bundle.protected)) patch.protected = bundle.protected;
+  if (Array.isArray(bundle.profiles)) patch.profiles = bundle.profiles;
+  if (Array.isArray(bundle.domainRules)) patch.domainRules = bundle.domainRules;
   if (Array.isArray(bundle.archive)) patch.archive = bundle.archive;
+  if (Array.isArray(bundle.snoozed)) patch.snoozed = bundle.snoozed;
   if (bundle.stats) patch.stats = normalizeStats(bundle.stats);
   await chrome.storage.local.set(patch);
   scheduleSyncMirror();
@@ -163,43 +233,39 @@ function scheduleSyncMirror() {
   }, 400);
 }
 
-/** Push durable config to Chrome sync (survives reinstall when signed into Chrome). */
 export async function mirrorToSync() {
   const settings = await getSettings();
   if (settings.autoSync === false) return { ok: false, skipped: true };
 
   const all = await getAll();
   const payload = {
-    tf_v: 2,
+    tf_v: 3,
     tf_settings: all.settings,
     tf_whitelist: all.whitelist,
     tf_protected: all.protected,
+    tf_profiles: all.profiles,
+    tf_domainRules: all.domainRules,
     tf_updatedAt: Date.now(),
   };
 
-  // Keep under sync quota (~100KB); trim protected/whitelist if needed
   let json = JSON.stringify(payload);
   if (json.length > 90000) {
-    payload.tf_protected = (payload.tf_protected || []).slice(0, 80);
-    payload.tf_whitelist = (payload.tf_whitelist || []).slice(0, 80);
-    json = JSON.stringify(payload);
-  }
-  if (json.length > 100000) {
-    payload.tf_protected = (payload.tf_protected || []).slice(0, 30);
-    payload.tf_whitelist = (payload.tf_whitelist || []).slice(0, 30);
+    payload.tf_protected = (payload.tf_protected || []).slice(0, 60);
+    payload.tf_whitelist = (payload.tf_whitelist || []).slice(0, 60);
+    payload.tf_domainRules = (payload.tf_domainRules || []).slice(0, 40);
   }
 
   await chrome.storage.sync.set(payload);
   return { ok: true };
 }
 
-/** On install: if local is empty-ish, hydrate from sync. */
 export async function hydrateFromSyncIfNeeded() {
   try {
     const local = await getAll();
     const hasLocalConfig =
       (local.whitelist && local.whitelist.length > 0) ||
       (local.protected && local.protected.length > 0) ||
+      (local.domainRules && local.domainRules.length > 0) ||
       (local.settings && local.settings.thresholdMs > 0);
 
     const sync = await chrome.storage.sync.get([
@@ -207,25 +273,13 @@ export async function hydrateFromSyncIfNeeded() {
       "tf_settings",
       "tf_whitelist",
       "tf_protected",
+      "tf_profiles",
+      "tf_domainRules",
     ]);
 
     if (!sync.tf_v && !sync.tf_settings) return { restored: false };
 
     if (hasLocalConfig) {
-      // Still merge protected URLs missing locally
-      const remoteProtected = Array.isArray(sync.tf_protected) ? sync.tf_protected : [];
-      if (remoteProtected.length) {
-        const map = new Map(local.protected.map((p) => [p.url + "|" + (p.match || "url"), p]));
-        let changed = false;
-        for (const p of remoteProtected) {
-          const key = (p.url || "") + "|" + (p.match || "url");
-          if (!map.has(key)) {
-            map.set(key, p);
-            changed = true;
-          }
-        }
-        if (changed) await setProtected([...map.values()]);
-      }
       return { restored: false, merged: true };
     }
 
@@ -233,14 +287,14 @@ export async function hydrateFromSyncIfNeeded() {
     if (sync.tf_settings) patch.settings = { ...DEFAULT_SETTINGS, ...sync.tf_settings };
     if (Array.isArray(sync.tf_whitelist)) patch.whitelist = sync.tf_whitelist;
     if (Array.isArray(sync.tf_protected)) patch.protected = sync.tf_protected;
+    if (Array.isArray(sync.tf_profiles)) patch.profiles = sync.tf_profiles;
+    if (Array.isArray(sync.tf_domainRules)) patch.domainRules = sync.tf_domainRules;
     if (Object.keys(patch).length) {
       await chrome.storage.local.set(patch);
       return { restored: true };
     }
   } catch {
-    // sync may be unavailable
+    // sync unavailable
   }
   return { restored: false };
 }
-
-export { SYNC_MIRROR_KEYS };

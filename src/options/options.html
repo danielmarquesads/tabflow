@@ -20,36 +20,28 @@
           <div class="mark">TF</div>
           <div>
             <strong data-i18n="extName">TabFlow</strong>
-            <div class="muted tiny">v1.1.0 · MIT</div>
+            <div class="muted tiny">v1.2.0 · MIT</div>
           </div>
         </div>
-        <nav class="tabs-nav side-nav" role="tablist" data-i18n-aria="settings">
-          <button type="button" role="tab" aria-selected="true" data-tab="general" data-i18n="navGeneral">
-            General
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-tab="kept" data-i18n="navKept">
-            Kept tabs
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-tab="whitelist" data-i18n="navWhitelist">
-            Whitelist
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-tab="archive" data-i18n="navArchive">
-            Archive
-          </button>
+        <nav class="tabs-nav side-nav" role="tablist">
+          <button type="button" role="tab" aria-selected="true" data-tab="general" data-i18n="navGeneral">General</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="profiles" data-i18n="navProfiles">Profiles</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="domains" data-i18n="navDomains">Domain rules</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="kept" data-i18n="navKept">Kept tabs</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="whitelist" data-i18n="navWhitelist">Whitelist</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="archive" data-i18n="navArchive">Archive</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="import" data-i18n="navImport">Import URLs</button>
           <button type="button" role="tab" aria-selected="false" data-tab="data" data-i18n="navData">Data</button>
         </nav>
-        <p class="side-note muted" data-i18n="sideNote">
-          Settings and kept tabs auto-sync with your Chrome account when enabled.
-        </p>
+        <p class="side-note muted" data-i18n="sideNote">Free · open source · local-first</p>
       </aside>
 
       <main class="main">
         <section id="panel-general" class="tab-panel" role="tabpanel">
           <header class="page-head">
             <h1 data-i18n="generalTitle">General</h1>
-            <p class="muted" data-i18n="generalDesc">Control when idle tabs close and what stays protected.</p>
+            <p class="muted" data-i18n="generalDesc">Thresholds, grace period, and protections.</p>
           </header>
-
           <div class="grid-2">
             <div class="panel stack">
               <div class="row between">
@@ -57,20 +49,14 @@
                   <div class="label-strong" data-i18n="enableAutoClose">Enable auto-close</div>
                   <p class="muted tiny" data-i18n="enableHint">Nothing closes until threshold is set</p>
                 </div>
-                <label class="toggle">
-                  <input type="checkbox" id="enabledToggle" />
-                  <span></span>
-                </label>
+                <label class="toggle"><input type="checkbox" id="enabledToggle" /><span></span></label>
               </div>
               <div class="row between">
                 <div>
                   <div class="label-strong" data-i18n="paused">Paused</div>
-                  <p class="muted tiny" data-i18n="researchMode">Research mode without losing config</p>
+                  <p class="muted tiny" data-i18n="researchMode">Research mode</p>
                 </div>
-                <label class="toggle">
-                  <input type="checkbox" id="pausedToggle" />
-                  <span></span>
-                </label>
+                <label class="toggle"><input type="checkbox" id="pausedToggle" /><span></span></label>
               </div>
               <div class="field">
                 <label data-i18n="thresholdLabel">Inactivity threshold</label>
@@ -84,129 +70,169 @@
                   </select>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary" id="saveGeneral" data-i18n="saveGeneral">
-                Save general
-              </button>
+              <div class="row between">
+                <div>
+                  <div class="label-strong" data-i18n="graceEnabled">Grace period</div>
+                  <p class="muted tiny" data-i18n="graceEnabledHint">Warn before closing</p>
+                </div>
+                <label class="toggle"><input type="checkbox" id="graceEnabled" checked /><span></span></label>
+              </div>
+              <div class="field">
+                <label for="graceSeconds" data-i18n="graceSeconds">Grace seconds</label>
+                <input type="number" id="graceSeconds" min="0" max="600" value="60" />
+              </div>
+              <button type="button" class="btn btn-primary" id="saveGeneral" data-i18n="saveGeneral">Save</button>
             </div>
-
             <div class="panel stack">
               <div class="row between">
                 <div>
-                  <div class="label-strong" data-i18n="protectPinned">Protect pinned tabs</div>
-                  <p class="muted tiny" data-i18n="protectPinnedHint">Pinned stays open</p>
+                  <div class="label-strong" data-i18n="protectPinned">Protect pinned</div>
                 </div>
-                <label class="toggle">
-                  <input type="checkbox" id="protectPinned" />
-                  <span></span>
-                </label>
+                <label class="toggle"><input type="checkbox" id="protectPinned" /><span></span></label>
               </div>
               <div class="row between">
                 <div>
-                  <div class="label-strong" data-i18n="protectAudio">Protect audio tabs</div>
-                  <p class="muted tiny" data-i18n="protectAudioHint">Music, calls, video</p>
+                  <div class="label-strong" data-i18n="protectAudio">Protect audio</div>
                 </div>
-                <label class="toggle">
-                  <input type="checkbox" id="protectAudio" />
-                  <span></span>
-                </label>
+                <label class="toggle"><input type="checkbox" id="protectAudio" /><span></span></label>
               </div>
               <div class="field">
-                <label for="minTabs" data-i18n="minTabs">Minimum tabs per window</label>
+                <label for="minTabs" data-i18n="minTabs">Min tabs / window</label>
                 <input type="number" id="minTabs" min="1" max="50" value="3" />
               </div>
               <div class="field">
-                <label for="archiveCap" data-i18n="archiveCap">Archive size cap</label>
+                <label for="archiveCap" data-i18n="archiveCap">Archive cap</label>
                 <input type="number" id="archiveCap" min="50" max="5000" value="500" />
               </div>
               <div class="row between">
                 <div>
                   <div class="label-strong" data-i18n="pageButton">On-page archive button</div>
-                  <p class="muted tiny" data-i18n="pageButtonHint">FAB on websites</p>
                 </div>
-                <label class="toggle">
-                  <input type="checkbox" id="showPageButton" />
-                  <span></span>
-                </label>
+                <label class="toggle"><input type="checkbox" id="showPageButton" /><span></span></label>
               </div>
               <div class="row between">
                 <div>
-                  <div class="label-strong" data-i18n="autoSync">Auto-sync settings</div>
-                  <p class="muted tiny" data-i18n="autoSyncHint">Chrome Sync restores config after reinstall</p>
+                  <div class="label-strong" data-i18n="autoSync">Auto-sync</div>
                 </div>
-                <label class="toggle">
-                  <input type="checkbox" id="autoSync" checked />
-                  <span></span>
-                </label>
+                <label class="toggle"><input type="checkbox" id="autoSync" checked /><span></span></label>
+              </div>
+              <div class="field">
+                <label for="estMbPerTab" data-i18n="estMbPerTab">Est. MB per closed tab</label>
+                <input type="number" id="estMbPerTab" min="1" max="500" value="50" />
               </div>
             </div>
           </div>
-
           <div class="stat-grid wide">
-            <div class="stat">
-              <div class="value mono" id="statToday">0</div>
-              <div class="label" data-i18n="closedToday">Closed today</div>
-            </div>
-            <div class="stat">
-              <div class="value mono" id="statTotal">0</div>
-              <div class="label" data-i18n="closedTotal">Closed total</div>
-            </div>
-            <div class="stat">
-              <div class="value mono" id="statTabs">0</div>
-              <div class="label" data-i18n="openTabs">Open tabs</div>
-            </div>
-            <div class="stat">
-              <div class="value mono" id="statArchive">0</div>
-              <div class="label" data-i18n="inArchive">In archive</div>
-            </div>
+            <div class="stat"><div class="value mono" id="statToday">0</div><div class="label" data-i18n="closedToday">Today</div></div>
+            <div class="stat"><div class="value mono" id="statWeek">0</div><div class="label" data-i18n="closedWeek">Week</div></div>
+            <div class="stat"><div class="value mono" id="statTotal">0</div><div class="label" data-i18n="closedTotal">Total</div></div>
+            <div class="stat"><div class="value mono" id="statMb">0</div><div class="label" data-i18n="estMb">~MB</div></div>
           </div>
-
           <div class="panel stack">
             <div class="row between">
-              <h2 class="section-title" data-i18n="dryRun">Dry-run preview</h2>
-              <button type="button" class="btn btn-sm" id="refreshPreview" data-i18n="refresh">Refresh</button>
+              <h2 class="section-title" data-i18n="dryRun">Preview</h2>
+              <div class="row gap">
+                <button type="button" class="btn btn-sm" id="simulateBtn" data-i18n="simulate1h">Simulate +1h</button>
+                <button type="button" class="btn btn-sm" id="refreshPreview" data-i18n="refresh">Refresh</button>
+              </div>
             </div>
             <div id="previewList" class="list"></div>
-            <button type="button" class="btn" id="runSweep" data-i18n="closeEligible">Close eligible tabs now</button>
+            <button type="button" class="btn" id="runSweep" data-i18n="closeEligible">Close eligible now</button>
+          </div>
+          <div class="panel stack">
+            <h2 class="section-title" data-i18n="shortcutsTitle">Keyboard shortcuts</h2>
+            <p class="muted tiny" data-i18n="shortcutsHint">
+              Alt+Shift+P pause · Alt+Shift+K keep · Alt+Shift+S snooze · Alt+Shift+A archive. Customize in chrome://extensions/shortcuts
+            </p>
+          </div>
+        </section>
+
+        <section id="panel-profiles" class="tab-panel hidden" role="tabpanel" hidden>
+          <header class="page-head">
+            <h1 data-i18n="navProfiles">Profiles</h1>
+            <p class="muted" data-i18n="profilesDesc">Switch modes: Deep work, Research, Balanced. Optional hour schedule.</p>
+          </header>
+          <div class="panel stack">
+            <div id="profilesList" class="list"></div>
+            <div class="row between">
+              <div>
+                <div class="label-strong" data-i18n="scheduleEnabled">Hour schedule</div>
+                <p class="muted tiny" data-i18n="scheduleHint">Map hours 0–23 to a profile (JSON)</p>
+              </div>
+              <label class="toggle"><input type="checkbox" id="scheduleEnabled" /><span></span></label>
+            </div>
+            <div class="field">
+              <label for="scheduleJson" data-i18n="scheduleJson">Schedule JSON</label>
+              <textarea id="scheduleJson" rows="4" placeholder='{"9":"deep","10":"deep","18":"research"}'></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" id="saveProfiles" data-i18n="save">Save profiles</button>
+          </div>
+        </section>
+
+        <section id="panel-domains" class="tab-panel hidden" role="tabpanel" hidden>
+          <header class="page-head">
+            <h1 data-i18n="navDomains">Domain rules</h1>
+            <p class="muted" data-i18n="domainsDesc">Custom idle thresholds per site (e.g. YouTube 20 min, GitHub 8 h).</p>
+          </header>
+          <div class="panel stack">
+            <div class="whitelist-form domain-form">
+              <div class="field">
+                <label data-i18n="pattern">Pattern</label>
+                <input type="text" id="domainPattern" placeholder="youtube.com" />
+              </div>
+              <div class="field">
+                <label data-i18n="mode">Mode</label>
+                <select id="domainMode">
+                  <option value="subdomain" data-i18n="modeSubdomain">Subdomain</option>
+                  <option value="exact" data-i18n="modeExact">Exact</option>
+                  <option value="wildcard" data-i18n="modeWildcard">Wildcard</option>
+                </select>
+              </div>
+              <div class="field">
+                <label data-i18n="thresholdLabel">Threshold</label>
+                <div class="threshold-grid">
+                  <input type="number" id="domainValue" min="1" value="20" />
+                  <select id="domainUnit">
+                    <option value="minutes">min</option>
+                    <option value="hours">h</option>
+                    <option value="days">d</option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" id="addDomain" data-i18n="addRule">Add</button>
+            </div>
+            <div id="domainList" class="list"></div>
           </div>
         </section>
 
         <section id="panel-kept" class="tab-panel hidden" role="tabpanel" hidden>
           <header class="page-head">
             <h1 data-i18n="keptTitle">Kept tabs</h1>
-            <p class="muted" data-i18n="keptDesc">
-              Tabs you marked to never auto-close. Saved automatically and synced with Chrome when enabled.
-            </p>
+            <p class="muted" data-i18n="keptDesc">Never auto-closed.</p>
           </header>
-          <div class="panel stack">
-            <div id="keptList" class="list tall"></div>
-          </div>
+          <div class="panel stack"><div id="keptList" class="list tall"></div></div>
         </section>
 
         <section id="panel-whitelist" class="tab-panel hidden" role="tabpanel" hidden>
           <header class="page-head">
             <h1 data-i18n="whitelistTitle">Whitelist</h1>
-            <p class="muted" data-i18n="whitelistDesc">Protect URLs and domains from auto-close.</p>
+            <p class="muted" data-i18n="whitelistDesc">Domain patterns never closed.</p>
           </header>
           <div class="panel stack">
             <div class="whitelist-form">
               <div class="field">
-                <label for="rulePattern" data-i18n="pattern">Pattern</label>
-                <input
-                  type="text"
-                  id="rulePattern"
-                  data-i18n-placeholder="patternPlaceholder"
-                  placeholder="notion.so or *.google.com"
-                />
+                <label data-i18n="pattern">Pattern</label>
+                <input type="text" id="rulePattern" data-i18n-placeholder="patternPlaceholder" />
               </div>
               <div class="field">
-                <label for="ruleMode" data-i18n="mode">Mode</label>
+                <label data-i18n="mode">Mode</label>
                 <select id="ruleMode">
                   <option value="subdomain" data-i18n="modeSubdomain">Subdomain</option>
-                  <option value="exact" data-i18n="modeExact">Exact URL path</option>
+                  <option value="exact" data-i18n="modeExact">Exact</option>
                   <option value="wildcard" data-i18n="modeWildcard">Wildcard</option>
                 </select>
               </div>
-              <button type="button" class="btn btn-primary" id="addRule" data-i18n="addRule">Add rule</button>
+              <button type="button" class="btn btn-primary" id="addRule" data-i18n="addRule">Add</button>
             </div>
             <div id="whitelistList" class="list"></div>
           </div>
@@ -215,53 +241,60 @@
         <section id="panel-archive" class="tab-panel hidden" role="tabpanel" hidden>
           <header class="page-head">
             <h1 data-i18n="archiveTitle">Archive</h1>
-            <p class="muted" data-i18n="archiveDesc">Search and restore tabs closed by TabFlow. Local only.</p>
+            <p class="muted" data-i18n="archiveDesc">Grouped by domain. Reopen a whole session.</p>
           </header>
           <div class="panel stack">
             <div class="row">
               <div class="field grow">
-                <label for="archiveQuery" data-i18n="search">Search</label>
-                <input
-                  type="search"
-                  id="archiveQuery"
-                  data-i18n-placeholder="searchPlaceholder"
-                  placeholder="Title or URL"
-                />
+                <label data-i18n="search">Search</label>
+                <input type="search" id="archiveQuery" data-i18n-placeholder="searchPlaceholder" />
               </div>
-              <button type="button" class="btn btn-danger btn-sm" id="clearArchive" data-i18n="clearAll">
-                Clear all
-              </button>
+              <button type="button" class="btn btn-danger btn-sm" id="clearArchive" data-i18n="clearAll">Clear</button>
+            </div>
+            <div class="row gap">
+              <button type="button" class="btn btn-sm" id="viewFlat" data-i18n="viewFlat">List</button>
+              <button type="button" class="btn btn-sm btn-primary" id="viewGroups" data-i18n="viewGroups">By domain</button>
             </div>
             <div id="archiveList" class="list tall"></div>
+          </div>
+        </section>
+
+        <section id="panel-import" class="tab-panel hidden" role="tabpanel" hidden>
+          <header class="page-head">
+            <h1 data-i18n="navImport">Import URLs</h1>
+            <p class="muted" data-i18n="importDesc">Paste OneTab-style lines or plain URLs (one per line).</p>
+          </header>
+          <div class="panel stack">
+            <div class="field">
+              <label for="importText" data-i18n="importPaste">Paste URLs</label>
+              <textarea id="importText" rows="10" placeholder="https://example.com&#10;https://other.com | My title"></textarea>
+            </div>
+            <div class="row gap">
+              <button type="button" class="btn btn-primary" id="importOpen" data-i18n="importOpen">Open as tabs</button>
+              <button type="button" class="btn" id="importArchive" data-i18n="importArchive">Add to archive</button>
+            </div>
           </div>
         </section>
 
         <section id="panel-data" class="tab-panel hidden" role="tabpanel" hidden>
           <header class="page-head">
             <h1 data-i18n="dataTitle">Data</h1>
-            <p class="muted" data-i18n="dataDesc">
-              Export or import settings, kept tabs, whitelist, and archive as JSON.
-            </p>
+            <p class="muted" data-i18n="dataDesc">Export / import full backup JSON.</p>
           </header>
           <div class="panel stack">
-            <div class="row">
-              <button type="button" class="btn btn-primary" id="exportBtn" data-i18n="exportBackup">
-                Export backup
-              </button>
-              <label class="btn">
-                <span data-i18n="importBackup">Import backup</span>
+            <div class="row gap">
+              <button type="button" class="btn btn-primary" id="exportBtn" data-i18n="exportBackup">Export</button>
+              <label class="btn"><span data-i18n="importBackup">Import</span>
                 <input type="file" id="importFile" accept="application/json,.json" hidden />
               </label>
               <button type="button" class="btn" id="syncNow" data-i18n="syncNow">Sync now</button>
             </div>
-            <p class="muted tiny" data-i18n="dataNote">
-              Import replaces matching keys. Auto-sync keeps settings recoverable after reinstall.
-            </p>
+            <p class="muted tiny" data-i18n="dataNote">100% free & open source. No accounts required.</p>
           </div>
         </section>
       </main>
     </div>
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="toast" class="toast" role="status"></div>
     <script type="module" src="options.js"></script>
   </body>
 </html>

@@ -127,6 +127,63 @@ body {
   max-height: 480px;
 }
 
+.row.gap {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.domain-form {
+  grid-template-columns: 1fr 140px 1fr auto;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 72px 72px auto;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.profile-grid input,
+.profile-grid select,
+textarea {
+  min-height: 34px;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.group-block {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  margin-bottom: 8px;
+  background: var(--bg);
+}
+
+.group-head {
+  margin-bottom: 6px;
+  padding: 4px 4px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 860px) {
+  .domain-form,
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .hidden,
 .tab-panel[hidden] {
   display: none !important;
